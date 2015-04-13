@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Gustow</string>
     <string name="carte">La Carte</string>
     <string name="carte_entree">Les Entrées</string>
     <string name="carte_plat">Les Plats</string>
     <string name="carte_dessert">Les Desserts</string>
-    <string name="menu_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_main_activitycarte2">MainActivitycarte2</string>
     <string name="title_activity_main_activitycarte3">MainActivitycarte3</string>
     <string name="title_activity_main_activitycarte4">MainActivitycarte4</string>
@@ -15,5 +12,22 @@
     <string name="title_activity_carte_entree">CarteEntree</string>
     <string name="title_activity_carte_plat">CartePlat</string>
     <string name="title_activity_carte_dessert">CarteDessert</string>
-
+    <string name="edit_message">Enter a message</string>
+    <string name="button_fr">Français</string>
+    <string name="button_en">English</string>
+    <string name="button_de">Deutsch</string>
+    <string name="button_es">Español</string>
+    <string name="button_ch">中文</string>
+    <string name="choose_menu">Choisissez votre menu</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_home_menu">HomeMenu</string>
+    <string name="button_menu">Composer votre menu</string>
+    <string name="button_carte">À la carte</string>
+    <string name="button_formule1">formule 1</string>
+    <string name="button_formule2">formule 2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_compose_menu">composeMenu</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_home">Home</string>
 </resources>
