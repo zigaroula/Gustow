@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".ComposeMenu" >
+
+    <LinearLayout
+        android:id="@+id/menu_formule"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/button_formule_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="selectFormule"
+            android:text="formule 1" />
+
+        <Button
+            android:id="@+id/button_formule_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="selectFormule"
+            android:text="formule 2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menu_plat"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</LinearLayout>
