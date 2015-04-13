@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class Home extends Activity {
+public class CarteMenu extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -16,24 +16,28 @@ public class Home extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
                                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		setContentView(R.layout.activity_home);
+		setContentView(R.layout.activity_carte_menu);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_home, menu);
+		getMenuInflater().inflate(R.menu.activity_carte_menu, menu);
 		return true;
 	}
-	
-	public void selectMenu(View View) {
-		Intent intent = new Intent(this, ComposeMenu.class);
-		startActivity(intent);
-	}
-	
-	public void selectCarte(View View) {
-		Intent intent = new Intent(this, CarteMenu.class);
-		startActivity(intent);
-	}
 
+	public void carte_e(View sender){
+    	Intent intent = new Intent(CarteMenu.this, CarteEntree.class);
+    	startActivity(intent);
+    }
+    
+    public void carte_p(View sender){
+    	Intent intent = new Intent(CarteMenu.this, CartePlat.class);
+    	startActivity(intent);
+    }
+    
+    public void carte_d(View sender){
+    	Intent intent = new Intent(CarteMenu.this, CarteDessert.class);
+    	startActivity(intent);
+    }
 }
