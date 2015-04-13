@@ -10,13 +10,16 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="menu"
-        android:onClick="selectMenu" />
+        android:onClick="selectMenu"
+        android:background="@drawable/doge"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="carte"
-        android:onClick="selectCarte"/>
+        android:onClick="selectCarte"
+        android:background="@drawable/doge"/>
+        
 
 </LinearLayout>
