@@ -19,8 +19,7 @@ public final class R {
         public static final int button_formule_2=0x7f070002;
         public static final int menu_formule=0x7f070000;
         public static final int menu_plat=0x7f070003;
-        public static final int menu_settings=0x7f070005;
-        public static final int relativeLayout1=0x7f070004;
+        public static final int menu_settings=0x7f070004;
     }
     public static final class layout {
         public static final int activity_compose_menu=0x7f030000;
