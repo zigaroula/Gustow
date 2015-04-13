@@ -26,6 +26,10 @@
             android:name="infsi351.gustow.Home"
             android:label="@string/title_activity_home" >
         </activity>
+        <activity
+            android:name="infsi351.gustow.ComposeMenu"
+            android:label="@string/title_activity_compose_menu" >
+        </activity>
     </application>
 
 </manifest>

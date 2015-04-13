@@ -22,8 +22,8 @@ public class MainActivity extends Activity {
     }
     
     public void selectLanguage(View view) {
-    	//Intent intent = new Intent(this, Home.class);
-    	//startActivity(intent);
+    	Intent intent = new Intent(this, Home.class);
+    	startActivity(intent);
     }
     
 }
