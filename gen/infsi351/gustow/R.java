@@ -18,14 +18,17 @@ public final class R {
         public static final int relativeLayout1=0x7f070000;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int activity_home=0x7f030000;
+        public static final int activity_main=0x7f030001;
     }
     public static final class menu {
-        public static final int activity_main=0x7f060000;
+        public static final int activity_home=0x7f060000;
+        public static final int activity_main=0x7f060001;
     }
     public static final class string {
         public static final int action_settings=0x7f040008;
         public static final int app_name=0x7f040000;
+<<<<<<< HEAD
         public static final int button_carte=0x7f04000c;
         public static final int button_ch=0x7f040006;
         public static final int button_de=0x7f040004;
@@ -41,6 +44,11 @@ public final class R {
         public static final int title_activity_compose_menu=0x7f040010;
         public static final int title_activity_home_menu=0x7f04000a;
         public static final int title_activity_main=0x7f040009;
+=======
+        public static final int hello_world=0x7f040001;
+        public static final int menu_settings=0x7f040002;
+        public static final int title_activity_home=0x7f040003;
+>>>>>>> 999973874b9f9c2744f179ba0c8b1ba113e2e8fd
     }
     public static final class style {
         /** 

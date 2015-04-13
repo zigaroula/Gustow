@@ -16,5 +16,11 @@
     <string name="button_formule1">formule 1</string>
     <string name="button_formule2">formule 2</string>
     <string name="hello_world">Hello world!</string>
+<<<<<<< HEAD
     <string name="title_activity_compose_menu">composeMenu</string>
+=======
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_home">Home</string>
+
+>>>>>>> 999973874b9f9c2744f179ba0c8b1ba113e2e8fd
 </resources>
