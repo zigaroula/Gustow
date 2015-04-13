@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="bottom"
-    android:gravity="bottom" >
+    android:gravity="bottom"
+    android:background="@drawable/doge" >
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -37,7 +38,7 @@
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:onClick="selectLanguage"
                 android:text="@string/button_fr"
                 android:background="@android:color/transparent" />
@@ -53,7 +54,7 @@
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:onClick="selectLanguage"
                 android:text="@string/button_es"
                 android:background="@android:color/transparent" />
