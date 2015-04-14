@@ -3,23 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Home" >
+    android:id="@+id/page2"
+    tools:context=".Home"
+    android:background="@drawable/page2" >
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="menu"
         android:onClick="selectMenu"
-        android:background="@drawable/doge"/>
+        android:background="@android:color/transparent"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="carte"
         android:onClick="selectCarte"
-        android:background="@drawable/doge"/>
+        android:background="@android:color/transparent"/>
         
 
 </LinearLayout>

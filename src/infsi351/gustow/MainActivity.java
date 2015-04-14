@@ -9,6 +9,8 @@ import android.view.Window;
 import android.view.WindowManager;
 
 public class MainActivity extends Activity {
+	
+	public final static String LANGUAGE = "infsi351.gustow.LANGUE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,19 @@ public class MainActivity extends Activity {
     
     public void selectLanguage(View view) {
     	Intent intent = new Intent(this, Home.class);
+    	String language = "";
+    	switch (view.getId()) {
+    	case R.id.button_fr:
+    		language = "FR";
+    		break;
+    	case R.id.button_en:
+    		language = "EN";
+    		break;
+    	case R.id.button_es:
+    		language = "ES";
+    		break;
+    	}
+    	intent.putExtra(LANGUAGE, language);
     	startActivity(intent);
     }
     
