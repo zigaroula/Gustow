@@ -5,16 +5,69 @@
     tools:context=".CarteEntree" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/carte_entree"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/button_retourcarte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="retourCarte"
+        android:text="@string/carte" />
+
+    <Button
+        android:id="@+id/buttonentree1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button_retourcarte"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        android:text="@string/carte_entree1" />
+
+    <Button
+        android:id="@+id/buttonentree2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/buttonentree1"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:text="@string/carte_entree2" />
     
     <Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/carte" 
-    android:onClick="retourCarte"/>
+        android:id="@+id/buttonentree3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/buttonentree2"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:text="@string/carte_entree3" />
+    
+    <Button
+        android:id="@+id/buttonentree4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/buttonentree3"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:text="@string/carte_entree4" />
+    
+    <Button
+        android:id="@+id/buttonentree5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/buttonentree4"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:text="@string/carte_entree5" />
+        
 
 </RelativeLayout>
