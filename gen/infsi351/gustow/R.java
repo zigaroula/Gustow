@@ -11,15 +11,21 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int dessert=0x7f020000;
-        public static final int doge=0x7f020001;
-        public static final int entree=0x7f020002;
-        public static final int entree1=0x7f020003;
-        public static final int entree2=0x7f020004;
-        public static final int entree3=0x7f020005;
-        public static final int entree4=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int plat=0x7f020008;
+        public static final int accueil=0x7f020000;
+        public static final int dessert=0x7f020001;
+        public static final int doge=0x7f020002;
+        public static final int entree=0x7f020003;
+        public static final int entree1=0x7f020004;
+        public static final int entree2=0x7f020005;
+        public static final int entree3=0x7f020006;
+        public static final int entree4=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int page2=0x7f020009;
+        public static final int page2_eng=0x7f02000a;
+        public static final int page2_spa=0x7f02000b;
+        public static final int page3a_0=0x7f02000c;
+        public static final int page3a_1=0x7f02000d;
+        public static final int plat=0x7f02000e;
     }
     public static final class id {
         public static final int button_cartedessert=0x7f070000;
