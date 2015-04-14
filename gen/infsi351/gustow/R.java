@@ -11,17 +11,28 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int dessert=0x7f020000;
-        public static final int doge=0x7f020001;
-        public static final int entree=0x7f020002;
-        public static final int entree1=0x7f020003;
-        public static final int entree2=0x7f020004;
-        public static final int entree3=0x7f020005;
-        public static final int entree4=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int plat=0x7f020008;
+        public static final int accueil=0x7f020000;
+        public static final int dessert=0x7f020001;
+        public static final int doge=0x7f020002;
+        public static final int entree=0x7f020003;
+        public static final int entree1=0x7f020004;
+        public static final int entree2=0x7f020005;
+        public static final int entree3=0x7f020006;
+        public static final int entree4=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int page2=0x7f020009;
+        public static final int page2_eng=0x7f02000a;
+        public static final int page2_spa=0x7f02000b;
+        public static final int page3a_0=0x7f02000c;
+        public static final int page3a_1=0x7f02000d;
+        public static final int plat=0x7f02000e;
     }
     public static final class id {
+        public static final int FrameLayout01=0x7f070025;
+        public static final int FrameLayout02=0x7f070026;
+        public static final int button1=0x7f070021;
+        public static final int button2=0x7f070022;
+        public static final int button3=0x7f070023;
         public static final int button_cartedessert=0x7f07000d;
         public static final int button_carteentree=0x7f07000c;
         public static final int button_carteplat=0x7f07000e;
@@ -51,9 +62,11 @@ public final class R {
         public static final int buttonentree3=0x7f070009;
         public static final int buttonentree4=0x7f07000a;
         public static final int buttonentree5=0x7f07000b;
+        public static final int frame_entree=0x7f070024;
         public static final int menu_formule=0x7f07001c;
         public static final int menu_plat=0x7f07001f;
-        public static final int menu_settings=0x7f070020;
+        public static final int menu_settings=0x7f070027;
+        public static final int tableRow1=0x7f070020;
         public static final int textView1=0x7f070006;
     }
     public static final class layout {

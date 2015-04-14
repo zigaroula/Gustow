@@ -31,8 +31,8 @@ public class ComposeMenu extends Activity {
 	public void selectFormule(View view) {
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		LinearLayout menuPlat = (LinearLayout) findViewById(R.id.menu_plat);
-		menuFormule.setLayoutParams(new LinearLayout.LayoutParams(300, ViewGroup.LayoutParams.MATCH_PARENT));
-		menuPlat.setLayoutParams(new LinearLayout.LayoutParams(300, ViewGroup.LayoutParams.MATCH_PARENT));
+		menuFormule.setLayoutParams(new LinearLayout.LayoutParams(100, ViewGroup.LayoutParams.MATCH_PARENT));
+		//menuPlat.setLayoutParams(new LinearLayout.LayoutParams(1800, ViewGroup.LayoutParams.MATCH_PARENT));
 
 		switch(view.getId()) {
 			case R.id.button_formule_1:
