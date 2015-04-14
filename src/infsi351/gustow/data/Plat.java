@@ -2,13 +2,28 @@ package infsi351.gustow.data;
 
 
 
+
 public class Plat {
 	private long id;
 	private String nom;
 	private double prix;
-	private TypePlats type;
+	//private TypePlats type;
 	private String pathImage;
 	private String description;
+	
+	public Plat() {
+		
+	}
+	
+	public Plat(String nom, double prix, String pathImage, String description) {
+		super();
+		//this.id = id;
+		this.nom = nom;
+		this.prix = prix;
+		this.pathImage = pathImage;
+		this.description = description;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -27,13 +42,13 @@ public class Plat {
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
-
+/*
 	public TypePlats getType() {
 		return type;
 	}
 	public void setType(TypePlats type) {
 		this.type = type;
-	}
+	}*/
 	public String getPathImage() {
 		return pathImage;
 	}
