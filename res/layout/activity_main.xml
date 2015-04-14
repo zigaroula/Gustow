@@ -20,7 +20,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="5"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:orientation="horizontal" />
@@ -30,7 +30,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:orientation="horizontal" >
@@ -38,23 +38,26 @@
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:onClick="selectLanguage"
-                android:background="@android:color/transparent" />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="selectLanguage"
-                android:background="@android:color/transparent" />
+                android:background="@android:color/transparent"
+                android:id="@+id/button_en" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:onClick="selectLanguage"
-                android:background="@android:color/transparent" />
+                android:background="@android:color/transparent"
+                android:id="@+id/button_fr" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:onClick="selectLanguage"
+                android:background="@android:color/transparent"
+                android:id="@+id/button_es" />
         </LinearLayout>
     </LinearLayout>
 

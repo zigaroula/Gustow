@@ -36,12 +36,16 @@ public final class R {
         public static final int button_cartedessert=0x7f070000;
         public static final int button_carteentree=0x7f070001;
         public static final int button_carteplat=0x7f070002;
+        public static final int button_en=0x7f070010;
+        public static final int button_es=0x7f070012;
         public static final int button_formule_1=0x7f070004;
         public static final int button_formule_2=0x7f070005;
+        public static final int button_fr=0x7f070011;
         public static final int frame_entree=0x7f07000c;
         public static final int menu_formule=0x7f070003;
         public static final int menu_plat=0x7f070006;
-        public static final int menu_settings=0x7f07000f;
+        public static final int menu_settings=0x7f070013;
+        public static final int page2=0x7f07000f;
         public static final int tableRow1=0x7f070007;
         public static final int textView1=0x7f070008;
     }
