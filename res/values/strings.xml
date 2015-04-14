@@ -30,4 +30,29 @@
     <string name="title_activity_compose_menu">composeMenu</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_home">Home</string>
+    <string name="carte_entree1">Entrée 1</string>
+    <string name="carte_entree2">Entrée 2</string>
+    <string name="carte_entree3">Entrée 3</string>
+    <string name="carte_entree4">Entrée 4</string>
+    <string name="carte_entree5">Entrée 5</string>
+    <string name="carte_viande1">Viande 1</string>
+    <string name="carte_viande2">Viande 2</string>
+    <string name="carte_viande3">Viande 3</string>
+    <string name="carte_viande4">Viande 4</string>
+    <string name="carte_salade1">Salade 1</string>
+    <string name="carte_salade2">Salade 2</string>
+    <string name="carte_salade3">Salade 3</string>
+    <string name="carte_salade4">Salade 4</string>
+    <string name="carte_poisson1">Poisson 1</string>
+    <string name="carte_poisson2">Poisson 2</string>
+    <string name="carte_poisson3">Poisson 3</string>
+    <string name="carte_poisson4">Poisson 4</string>
+    <string name="carte_dessert1">Dessert 1</string>
+    <string name="carte_dessert2">Dessert 2</string>
+    <string name="carte_dessert3">Dessert 3</string>
+    <string name="carte_dessert4">Dessert 4</string>
+    <string name="carte_dessert5">Dessert 5</string>
+    
+    
+    
 </resources>
