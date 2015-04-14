@@ -68,6 +68,5 @@
         android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
         android:text="@string/carte_entree5" />
-        
 
 </RelativeLayout>
