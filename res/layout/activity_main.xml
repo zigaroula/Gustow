@@ -2,8 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:gravity="center"
     android:layout_gravity="center" >
+=======
+    android:layout_gravity="bottom"
+    android:gravity="bottom"
+    android:background="@drawable/doge" >
+>>>>>>> e314a97d02d91879c06bade833bea847b81944a5
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,12 +28,22 @@
             android:text="@string/button_fr"
             android:background="@android:color/transparent" />
 
+<<<<<<< HEAD
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="selectLanguage"
             android:text="@string/button_en"
             android:background="@android:color/transparent" />
+=======
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:onClick="selectLanguage"
+                android:text="@string/button_fr"
+                android:background="@android:color/transparent" />
+>>>>>>> e314a97d02d91879c06bade833bea847b81944a5
 
         <Button
             android:layout_width="wrap_content"
@@ -36,6 +52,17 @@
             android:text="@string/button_es"
             android:background="@android:color/transparent" />
 
+<<<<<<< HEAD
+=======
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:onClick="selectLanguage"
+                android:text="@string/button_es"
+                android:background="@android:color/transparent" />
+        </LinearLayout>
+>>>>>>> e314a97d02d91879c06bade833bea847b81944a5
     </LinearLayout>
 
 </RelativeLayout>

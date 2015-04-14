@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Gustow</string>
+    <string name="carte">La Carte</string>
+    <string name="carte_entree">Les Entrées</string>
+    <string name="carte_plat">Les Plats</string>
+    <string name="carte_dessert">Les Desserts</string>
+    <string name="title_activity_main_activitycarte2">MainActivitycarte2</string>
+    <string name="title_activity_main_activitycarte3">MainActivitycarte3</string>
+    <string name="title_activity_main_activitycarte4">MainActivitycarte4</string>
+    <string name="title_activity_carte_menu">CarteMenu</string>
+    <string name="title_activity_carte_entree">CarteEntree</string>
+    <string name="title_activity_carte_plat">CartePlat</string>
+    <string name="title_activity_carte_dessert">CarteDessert</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_fr">Français</string>
     <string name="button_en">English</string>

@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CarteMenu" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:scrollHorizontally="false"
+        android:text="@string/carte"
+        android:textSize="20sp" />
+
+    <ImageButton
+        android:id="@+id/button_cartedessert"
+        android:layout_width="259dp"
+        android:layout_height="122dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/dessert"
+        android:text="@string/carte_dessert"
+        android:onClick = "carte_d" />
+
+    <ImageButton
+        android:id="@+id/button_carteentree"
+        android:layout_width="207dp"
+        android:layout_height="125dp"
+        android:layout_marginBottom="5sp"
+        android:layout_marginLeft="2sp"
+        android:layout_marginRight="5sp"
+        android:layout_marginTop="0sp"
+        android:src="@drawable/entree"
+        android:text="@string/carte_entree"
+        android:onClick = "carte_e" />
+
+    <ImageButton
+        android:id="@+id/button_carteplat"
+        android:layout_width="188dp"
+        android:layout_height="139dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/plat"
+        android:text="@string/carte_plat"
+        android:onClick = "carte_p" />
+
+</RelativeLayout>
