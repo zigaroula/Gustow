@@ -3,6 +3,7 @@ package infsi351.gustow;
 import infsi351.gustow.data.GestionnairePlat;
 import infsi351.gustow.data.Plat;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -40,7 +41,7 @@ public class ComposeMenu extends Activity {
 			LinearLayout menuPlatPlat = (LinearLayout) findViewById(R.id.menu_plat_plat);
 			LinearLayout menuPlatDessert = (LinearLayout) findViewById(R.id.menu_plat_dessert);
 	
-			GestionnairePlat g=new GestionnairePlat();
+			GestionnairePlat g=new GestionnairePlat(getApplicationContext());
 			g.testBourrin();
 			
 			switch(view.getId()) {
