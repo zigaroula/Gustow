@@ -28,14 +28,22 @@ public final class R {
         public static final int plat=0x7f02000e;
     }
     public static final class id {
+        public static final int FrameLayout01=0x7f07000d;
+        public static final int FrameLayout02=0x7f07000e;
+        public static final int button1=0x7f070009;
+        public static final int button2=0x7f07000a;
+        public static final int button3=0x7f07000b;
         public static final int button_cartedessert=0x7f070000;
         public static final int button_carteentree=0x7f070001;
         public static final int button_carteplat=0x7f070002;
         public static final int button_formule_1=0x7f070004;
         public static final int button_formule_2=0x7f070005;
+        public static final int frame_entree=0x7f07000c;
         public static final int menu_formule=0x7f070003;
         public static final int menu_plat=0x7f070006;
-        public static final int menu_settings=0x7f070007;
+        public static final int menu_settings=0x7f07000f;
+        public static final int tableRow1=0x7f070007;
+        public static final int textView1=0x7f070008;
     }
     public static final class layout {
         public static final int activity_carte_dessert=0x7f030000;
