@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class ComposeMenu extends Activity {
@@ -30,17 +31,37 @@ public class ComposeMenu extends Activity {
 
 	public void selectFormule(View view) {
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
-		LinearLayout menuPlat = (LinearLayout) findViewById(R.id.menu_plat);
 		menuFormule.setLayoutParams(new LinearLayout.LayoutParams(100, ViewGroup.LayoutParams.MATCH_PARENT));
-		//menuPlat.setLayoutParams(new LinearLayout.LayoutParams(1800, ViewGroup.LayoutParams.MATCH_PARENT));
+		LinearLayout menuPlatEntree = (LinearLayout) findViewById(R.id.menu_plat_entree);
+		LinearLayout menuPlatPlat = (LinearLayout) findViewById(R.id.menu_plat_plat);
+		LinearLayout menuPlatDessert = (LinearLayout) findViewById(R.id.menu_plat_dessert);
 
+
+		
 		switch(view.getId()) {
 			case R.id.button_formule_1:
 				//TODO
 				break;
+
 			case R.id.button_formule_2:
 				//TODO
 				break;
+		}
+		
+		for(int i=0; i<3; i++) {
+			Button b=new Button(this);
+			b.setText(Integer.toString(i));
+			menuPlatEntree.addView(b);
+		}
+		for(int i=0; i<3; i++) {
+			Button b=new Button(this);
+			b.setText(Integer.toString(i));
+			menuPlatPlat.addView(b);
+		}
+		for(int i=0; i<3; i++) {
+			Button b=new Button(this);
+			b.setText(Integer.toString(i));
+			menuPlatDessert.addView(b);
 		}
 	}
 }
