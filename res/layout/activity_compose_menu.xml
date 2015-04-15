@@ -120,7 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="confirm"
-            android:text="Button" />
+            android:text="Confirmer et voir commande" />
     </LinearLayout>
 
 </LinearLayout>

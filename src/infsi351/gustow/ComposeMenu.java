@@ -10,6 +10,7 @@ import java.util.EnumSet;
 import java.util.Map;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -138,6 +139,7 @@ public class ComposeMenu extends Activity {
 	}
 	
 	public void confirm(View view) {
-		//TODO
+		Intent intent = new Intent(this, CheckCart.class);
+		startActivity(intent);
 	}
 }

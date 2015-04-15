@@ -27,5 +27,26 @@ public class Cart {
 		plats.remove(f);
 	}
 	
+	public void testBourrin() {
+		Formule f=new Formule();
+		f.setName("trop cool");
+		f.addEntree(0);
+		f.addPlat(1);
+		f.addDessert(2);
+		add(f);
+		
+		add(1);
+		add(2);
+	}
+
+	public ArrayList<Formule> getMenus() {
+		return menus;
+	}
+
+	public ArrayList<Integer> getPlats() {
+		return plats;
+	}
+	
+	
 	
 }
