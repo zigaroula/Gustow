@@ -11,20 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/button_formule_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="selectFormule"
-            android:text="formule 1" />
-
-        <Button
-            android:id="@+id/button_formule_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="selectFormule"
-            android:text="formule 2" />
-
     </LinearLayout>
 
     <TableLayout

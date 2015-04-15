@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Formule {
+	private String nom;
 	private List<Integer> entrees=new ArrayList<Integer>();
 	private List<Integer> plats=new ArrayList<Integer>();
 	private List<Integer> desserts=new ArrayList<Integer>();
@@ -12,9 +13,10 @@ public class Formule {
 
 	}
 	
-	public Formule(List<Integer> entrees, List<Integer> plats,
+	public Formule(String name, List<Integer> entrees, List<Integer> plats,
 			List<Integer> desserts) {
 		super();
+		this.nom=name;
 		this.entrees = entrees;
 		this.plats = plats;
 		this.desserts = desserts;
@@ -25,6 +27,13 @@ public class Formule {
 		entrees.add(1);
 		plats.add(1);
 		desserts.add(2);
+	}
+	
+	public void testBourrin2() {
+		entrees.add(2);
+		plats.add(1);
+		plats.add(0);
+		desserts.add(0);
 	}
 
 	public List<Integer> getEntrees() {
@@ -37,6 +46,14 @@ public class Formule {
 
 	public List<Integer> getDesserts() {
 		return desserts;
+	}
+	
+	public String getNom() {
+		return nom;
+	}
+	
+	public void setName(String name) {
+		this.nom=name;
 	}
 	
 	public void addEntree(int i) {

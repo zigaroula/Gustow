@@ -24,7 +24,7 @@ import android.widget.TextView;
 public class ComposeMenu extends Activity {
 
 	private GestionnairePlat g;
-	private int currentFormuleId;
+	private Formule currentFormule;
 
 	// les rubriques à afficher dans l'ordre
 	private final EnumSet<TypePlat> rubriques = EnumSet.of(TypePlat.Entree,
@@ -46,6 +46,20 @@ public class ComposeMenu extends Activity {
 
 		g = new GestionnairePlat(getApplicationContext());
 		g.testBourrin(); // TEST
+
+		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
+		for (final Formule f : g.getFormules()) {
+			Button b = new Button(this);
+			b.setText(f.getNom());
+
+			b.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					selectFormule(f);
+				}
+			});
+
+			menuFormule.addView(b);
+		}
 
 		PlatLists = new EnumMap<TypePlat, LinearLayout>(TypePlat.class);
 		PlatLists.put(TypePlat.Entree,
@@ -71,26 +85,14 @@ public class ComposeMenu extends Activity {
 		return true;
 	}
 
-	public void selectFormule(View view) {
-		if (view.getId() == currentFormuleId)
+	public void selectFormule(Formule f) {
+		if (currentFormule == f)
 			return;
 
+		currentFormule = f;
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		menuFormule.setLayoutParams(new LinearLayout.LayoutParams(100,
 				ViewGroup.LayoutParams.MATCH_PARENT));
-
-		Formule formule = new Formule();
-
-		switch (view.getId()) {
-		case R.id.button_formule_1:
-			// TODO
-			formule.testBourrin();
-			break;
-
-		case R.id.button_formule_2:
-			// TODO
-			break;
-		}
 
 		for (TypePlat type : rubriques) {
 
@@ -100,7 +102,7 @@ public class ComposeMenu extends Activity {
 			frame.removeAllViews();
 
 			// pour chaque plat, on cree le bouton
-			for (int i : formule.getPlatsOfType(type)) {
+			for (int i : f.getPlatsOfType(type)) {
 				Plat p = g.get(i);
 
 				Button b = new Button(this);
