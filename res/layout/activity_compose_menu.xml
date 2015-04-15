@@ -30,7 +30,7 @@
     <TableLayout
         android:id="@+id/menu_plat"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1" >
 
         <TableRow
@@ -53,7 +53,7 @@
                     android:text="Entree" />
 
                 <!--  -->
-                
+
             </LinearLayout>
 
             <FrameLayout
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:text="Plat" />
 
-                    <!--  -->
+                <!--  -->
 
             </LinearLayout>
 
@@ -124,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:text="Dessert" />
 
-                    <!--  -->
+                <!--  -->
 
             </LinearLayout>
 
