@@ -10,118 +10,117 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
-
     </LinearLayout>
 
-    <TableLayout
+    <LinearLayout
         android:id="@+id/menu_plat"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1" >
+        android:orientation="vertical" >
 
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1" >
 
-            <LinearLayout
-                android:id="@+id/menu_plat_entree"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical" >
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
 
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/menu_plat_entree"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Entree" />
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
 
-                <!--  -->
-
-            </LinearLayout>
-
-            <FrameLayout
-                android:id="@+id/frame_entree"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                >
-            </FrameLayout>
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1" >
-
-            <LinearLayout
-                android:id="@+id/menu_plat_plat"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Plat" />
-
-                <!--  -->
-
-            </LinearLayout>
-
-            <FrameLayout
-                android:id="@+id/frame_plat"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                 >
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Entree" />
+                </LinearLayout>
 
                 <FrameLayout
-                    android:id="@+id/FrameLayout01"
+                    android:id="@+id/frame_entree"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    >
+                    android:layout_weight="1" >
                 </FrameLayout>
-            </FrameLayout>
-        </TableRow>
+            </TableRow>
 
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1" >
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
 
-            <LinearLayout
-                android:id="@+id/menu_plat_dessert"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/menu_plat_plat"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Dessert" />
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
 
-                <!--  -->
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Plat" />
+                </LinearLayout>
 
-            </LinearLayout>
+                <FrameLayout
+                    android:id="@+id/frame_plat"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
 
-            <FrameLayout
-                android:id="@+id/frame_dessert"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-              >
-            </FrameLayout>
-        </TableRow>
-    </TableLayout>
+                    <FrameLayout
+                        android:id="@+id/FrameLayout01"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" >
+                    </FrameLayout>
+                </FrameLayout>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+                <LinearLayout
+                    android:id="@+id/menu_plat_dessert"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dessert" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/frame_dessert"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                </FrameLayout>
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/button_confirm_formule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="confirm"
+            android:text="Button" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -10,6 +10,7 @@ import java.util.EnumSet;
 import java.util.Map;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -135,5 +136,9 @@ public class ComposeMenu extends Activity {
 		name.setText(p.getNom());
 
 		frame.addView(name);
+	}
+	
+	public void confirm(View view) {
+		//TODO
 	}
 }
