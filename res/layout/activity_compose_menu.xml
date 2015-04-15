@@ -61,7 +61,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/doge" >
+                >
             </FrameLayout>
         </TableRow>
 
@@ -89,18 +89,18 @@
             </LinearLayout>
 
             <FrameLayout
-                android:id="@+id/frame_entree"
+                android:id="@+id/frame_plat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/doge" >
+                 >
 
                 <FrameLayout
                     android:id="@+id/FrameLayout01"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/doge" >
+                    >
                 </FrameLayout>
             </FrameLayout>
         </TableRow>
@@ -129,11 +129,11 @@
             </LinearLayout>
 
             <FrameLayout
-                android:id="@+id/FrameLayout02"
+                android:id="@+id/frame_dessert"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/doge" >
+              >
             </FrameLayout>
         </TableRow>
     </TableLayout>

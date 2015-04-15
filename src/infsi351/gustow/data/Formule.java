@@ -58,5 +58,14 @@ public class Formule {
 	public void rmDessert(int i) {
 		desserts.remove((Integer) i);
 	}
+	
+	public List<Integer> getPlatsOfType(TypePlat type) {
+		switch(type) {
+			case Entree: return getEntrees();
+			case PlatPrincipal: return getPlats();
+			case Dessert: return getDesserts();
+			default: return null;
+		}
+	}
 
 }
