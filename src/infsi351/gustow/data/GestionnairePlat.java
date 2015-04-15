@@ -38,9 +38,9 @@ public class GestionnairePlat {
 	}
 
 	public void testBourrin() {
-		Plat p1=new Plat(1,"Opera",TypePlat.Dessert, 200, "", "a");
-		Plat p2=new Plat(2,"Couscous",TypePlat.PlatPrincipal, 20, "", "aaaaaa");
-		Plat p3=new Plat(3,"Terrine de poisson",TypePlat.Entree, 230, "", "cccccccc");
+		Plat p1=new Plat(0,"Opera",TypePlat.Dessert, 200, "", "a");
+		Plat p2=new Plat(1,"Couscous",TypePlat.PlatPrincipal, 20, "", "aaaaaa");
+		Plat p3=new Plat(2,"Terrine de poisson",TypePlat.Entree, 230, "", "cccccccc");
 
 		this.put(p1);
 		this.put(p2);
