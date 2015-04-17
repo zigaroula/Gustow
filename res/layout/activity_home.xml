@@ -1,27 +1,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/page2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/page2"
     android:orientation="vertical"
-    android:id="@+id/page2"
-    tools:context=".Home"
-    android:background="@drawable/page2" >
+    tools:context=".Home" >
 
     <Button
         android:id="@+id/button_formules"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:onClick="selectMenu"
         android:background="@android:color/transparent"
+        android:onClick="selectMenu"
         android:text="@string/button_formules" />
+
     <Button
         android:id="@+id/button_carte"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@android:color/transparent"
         android:onClick="selectCarte"
-        android:background="@android:color/transparent"/>
-        
+        android:text="@string/button_carte" />
 
 </LinearLayout>
