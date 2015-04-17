@@ -1,5 +1,6 @@
 package infsi351.gustow;
 
+import infsi351.gustow.data.Globals;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -19,6 +20,8 @@ public class MainActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
                                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        
+        Globals.init();
     }
 
     @Override

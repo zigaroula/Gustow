@@ -3,11 +3,11 @@ package infsi351.gustow.data;
 import java.util.ArrayList;
 
 public class Cart {
-	private ArrayList<Formule> menus; //formules avec un plat dans chaque catégorie
+	private ArrayList<Formule> formules; //formules avec un plat dans chaque catégorie
 	private ArrayList<Integer> plats; //id de plats individuels
 	
 	public Cart() {
-		menus=new ArrayList<Formule>();
+		formules=new ArrayList<Formule>();
 		plats=new ArrayList<Integer>();
 	}
 	
@@ -16,7 +16,7 @@ public class Cart {
 	}
 	
 	public void add(Formule f) {
-		menus.add(f);
+		formules.add(f);
 	}
 	
 	public void rm(int idPlat) {
@@ -29,18 +29,18 @@ public class Cart {
 	
 	public void testBourrin() {
 		Formule f=new Formule();
-		f.setName("trop cool");
-		f.addEntree(0);
-		f.addPlat(1);
-		f.addDessert(2);
+		f.setId(1);
+		f.setEntree(0);
+		f.setPlat(1);
+		f.setDessert(2);
 		add(f);
 		
 		add(1);
 		add(2);
 	}
 
-	public ArrayList<Formule> getMenus() {
-		return menus;
+	public ArrayList<Formule> getFormules() {
+		return formules;
 	}
 
 	public ArrayList<Integer> getPlats() {

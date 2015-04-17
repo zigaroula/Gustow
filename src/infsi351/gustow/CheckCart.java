@@ -1,8 +1,7 @@
 package infsi351.gustow;
 
-import infsi351.gustow.data.Cart;
 import infsi351.gustow.data.Formule;
-import infsi351.gustow.data.GestionnairePlat;
+import infsi351.gustow.data.Globals;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,20 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class CheckCart extends Activity {
-
-	private Cart cart;
-	private GestionnairePlat g;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_check_cart);
 
-		g = new GestionnairePlat(this);
-		g.testBourrin();
-		cart = new Cart();
-		cart.testBourrin();
-		
 		displayCart();
 
 	}
@@ -40,36 +31,35 @@ public class CheckCart extends Activity {
 	private void displayCart() {
 		LinearLayout itemList = (LinearLayout) findViewById(R.id.item_list);
 
-
-		for (Formule f : cart.getMenus()) {
+		for (Formule f : Globals.cart.getFormules()) {
 			TextView text = new TextView(this);
-			text.setText("formule " + f.getNom() + "\n   "
-					+ g.get(f.getEntrees().get(0)).getNom() + "\n   "
-					+ g.get(f.getPlats().get(0)).getNom() + "\n   "
-					+ g.get(f.getDesserts().get(0)).getNom()
-					);
+			text.setText(f.getId() + "\n   "
+					+ Globals.plats.get(f.getEntree()).getNom() + "\n   "
+					+ Globals.plats.get(f.getPlat()).getNom() + "\n   "
+					+ Globals.plats.get(f.getDessert()).getNom());
 			itemList.addView(text);
-			
-			//un peu sale...
-			LinearLayout separator=new LinearLayout(this);
+
+			// un peu sale...
+			LinearLayout separator = new LinearLayout(this);
 			separator.setBackgroundColor(Color.BLACK);
-			separator.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,2));
+			separator.setLayoutParams(new LinearLayout.LayoutParams(
+					ViewGroup.LayoutParams.MATCH_PARENT, 2));
 			itemList.addView(separator);
 		}
 
-		for (int id : cart.getPlats()) {
+		for (int id : Globals.cart.getPlats()) {
 			TextView text = new TextView(this);
-			text.setText(g.get(id).getNom());
-			
-			//un peu sale...
-			LinearLayout separator=new LinearLayout(this);
+			text.setText(Globals.plats.get(id).getNom());
+
+			// un peu sale...
+			LinearLayout separator = new LinearLayout(this);
 			separator.setBackgroundColor(Color.BLACK);
-			separator.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,2));
+			separator.setLayoutParams(new LinearLayout.LayoutParams(
+					ViewGroup.LayoutParams.MATCH_PARENT, 2));
 			itemList.addView(text);
 			itemList.addView(separator);
 		}
-		
-		
+
 	}
 
 }

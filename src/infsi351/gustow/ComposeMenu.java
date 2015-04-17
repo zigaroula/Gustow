@@ -1,7 +1,7 @@
 package infsi351.gustow;
 
 import infsi351.gustow.data.Formule;
-import infsi351.gustow.data.GestionnairePlat;
+import infsi351.gustow.data.Globals;
 import infsi351.gustow.data.Plat;
 import infsi351.gustow.data.TypePlat;
 
@@ -24,8 +24,8 @@ import android.widget.TextView;
 
 public class ComposeMenu extends Activity {
 
-	private GestionnairePlat g;
 	private Formule currentFormule;
+	private Formule buildingFormule;
 
 	// les rubriques à afficher dans l'ordre
 	private final EnumSet<TypePlat> rubriques = EnumSet.of(TypePlat.Entree,
@@ -45,11 +45,8 @@ public class ComposeMenu extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_compose_menu);
 
-		g = new GestionnairePlat(getApplicationContext());
-		g.testBourrin(); // TEST
-
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
-		for (final Formule f : g.getFormules()) {
+		for (final Formule f : Globals.plats.getFormules()) {
 			Button b = new Button(this);
 			b.setText(f.getNom());
 
@@ -61,6 +58,8 @@ public class ComposeMenu extends Activity {
 
 			menuFormule.addView(b);
 		}
+		
+		buildingFormule=new Formule();
 
 		PlatLists = new EnumMap<TypePlat, LinearLayout>(TypePlat.class);
 		PlatLists.put(TypePlat.Entree,
@@ -91,6 +90,8 @@ public class ComposeMenu extends Activity {
 			return;
 
 		currentFormule = f;
+		buildingFormule.setId(f.getId());
+		
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		menuFormule.setLayoutParams(new LinearLayout.LayoutParams(100,
 				ViewGroup.LayoutParams.MATCH_PARENT));
@@ -104,7 +105,7 @@ public class ComposeMenu extends Activity {
 
 			// pour chaque plat, on cree le bouton
 			for (int i : f.getPlatsOfType(type)) {
-				Plat p = g.get(i);
+				Plat p = Globals.plats.get(i);
 
 				Button b = new Button(this);
 				b.setText(p.getNom());
@@ -126,7 +127,7 @@ public class ComposeMenu extends Activity {
 	private void setFrame(int idPlat, TypePlat typePlat) {
 		// selectionne la frame à modifier
 		FrameLayout frame = PlatFrames.get(typePlat);
-		Plat p = g.get(idPlat);
+		Plat p = Globals.plats.get(idPlat);
 
 		// remplit la frame
 		frame.removeAllViews();
@@ -136,9 +137,13 @@ public class ComposeMenu extends Activity {
 		name.setText(p.getNom());
 
 		frame.addView(name);
+
+		buildingFormule.setPlatOfType(typePlat, idPlat);
 	}
 	
 	public void confirm(View view) {
+		Globals.cart.add(buildingFormule);
+		
 		Intent intent = new Intent(this, CheckCart.class);
 		startActivity(intent);
 	}

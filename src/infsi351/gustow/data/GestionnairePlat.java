@@ -14,7 +14,11 @@ public class GestionnairePlat {
 	private ArrayList<Formule> formules;
 	private Context context;
 
-
+	public GestionnairePlat() {
+		map=new Hashtable<Integer,Plat>();
+		formules=new ArrayList<Formule>();
+	}
+	
 	public GestionnairePlat(Context context){
 		map=new Hashtable<Integer,Plat>();
 		formules=new ArrayList<Formule>();
