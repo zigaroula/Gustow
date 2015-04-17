@@ -24,7 +24,7 @@ public class Cart {
 	}
 	
 	public void rm(Formule f) {
-		plats.remove(f);
+		formules.remove(f);
 	}
 	
 	public void testBourrin() {

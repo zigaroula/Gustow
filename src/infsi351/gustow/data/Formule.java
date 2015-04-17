@@ -27,6 +27,18 @@ public class Formule {
 		this.desserts = desserts;
 	}
 	
+	public void copyFormule(Formule f) {
+		this.id=f.id;
+		this.nom=f.nom;
+		this.entrees=f.entrees;
+		this.plats=f.plats;
+		this.desserts=f.desserts;
+		
+		this.entree=f.entree;
+		this.plat=f.plat;
+		this.dessert=f.dessert;
+	}
+	
 	public int getId() {
 		return id;
 	}

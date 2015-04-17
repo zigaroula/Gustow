@@ -90,7 +90,7 @@ public class ComposeMenu extends Activity {
 			return;
 
 		currentFormule = f;
-		buildingFormule.setId(f.getId());
+		buildingFormule.copyFormule(f);
 		
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		menuFormule.setLayoutParams(new LinearLayout.LayoutParams(100,
@@ -142,7 +142,9 @@ public class ComposeMenu extends Activity {
 	}
 	
 	public void confirm(View view) {
-		Globals.cart.add(buildingFormule);
+		Formule f=new Formule();
+		f.copyFormule(buildingFormule);
+		Globals.cart.add(f);
 		
 		Intent intent = new Intent(this, CheckCart.class);
 		startActivity(intent);

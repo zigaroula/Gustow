@@ -2,11 +2,16 @@ package infsi351.gustow;
 
 import infsi351.gustow.data.Formule;
 import infsi351.gustow.data.Globals;
+import infsi351.gustow.data.Plat;
+import infsi351.gustow.data.TypePlat;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -30,15 +35,26 @@ public class CheckCart extends Activity {
 
 	private void displayCart() {
 		LinearLayout itemList = (LinearLayout) findViewById(R.id.item_list);
+		itemList.removeAllViews();
 
-		for (Formule f : Globals.cart.getFormules()) {
+		for (final Formule f : Globals.cart.getFormules()) {
 			TextView text = new TextView(this);
-			text.setText(Globals.plats.getFormules().get(f.getId()).getNom()
+			text.setText(f.getNom()
 					+ "\n   " + Globals.plats.get(f.getEntree()).getNom()
 					+ "\n   " + Globals.plats.get(f.getPlat()).getNom()
 					+ "\n   " + Globals.plats.get(f.getDessert()).getNom());
 			itemList.addView(text);
+			
+			Button b = new Button(this);
+			b.setText("rm");
 
+			b.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					rmFormule(f);
+				}
+			});
+			
+			itemList.addView(b);
 			itemList.addView(separator());
 		}
 
@@ -59,6 +75,11 @@ public class CheckCart extends Activity {
 		separator.setLayoutParams(new LinearLayout.LayoutParams(
 				ViewGroup.LayoutParams.MATCH_PARENT, 2));
 		return separator;
+	}
+	
+	private void rmFormule(Formule f) {
+		Globals.cart.rm(f);
+		displayCart();
 	}
 
 }
