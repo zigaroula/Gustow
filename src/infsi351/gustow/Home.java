@@ -1,7 +1,10 @@
 package infsi351.gustow;
 
+import java.util.Locale;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,18 +33,7 @@ public class Home extends Activity {
 		//custom font
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/always forever.ttf");
 		bFormules.setTypeface(tf);
-		bCarte.setTypeface(tf);		
-
-		if (language.equals("FR")) {
-			bFormules.setText("Les formules");
-			bCarte.setText("À la carte");
-		} else if (language.equals("ES")) {
-			bFormules.setText("Hola que tal");
-			bFormules.setText("si senor");
-		} else {
-			bFormules.setText("much formule");
-			bCarte.setText("very carte");
-		}
+		bCarte.setTypeface(tf);
 	}
 
 	@Override

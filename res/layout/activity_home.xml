@@ -13,8 +13,8 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:onClick="selectMenu"
-        android:background="@android:color/transparent"/>
-
+        android:background="@android:color/transparent"
+        android:text="@string/button_formules" />
     <Button
         android:id="@+id/button_carte"
         android:layout_width="match_parent"

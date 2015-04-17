@@ -1,9 +1,12 @@
 package infsi351.gustow;
 
+import java.util.Locale;
+
 import infsi351.gustow.data.Globals;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
@@ -30,21 +33,35 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
-    
+        
     public void selectLanguage(View view) {
     	Intent intent = new Intent(this, Home.class);
     	String language = "";
+    	
+		Configuration config = new Configuration();
+        Locale locale=new Locale("fr");
+
     	switch (view.getId()) {
     	case R.id.button_fr:
     		language = "FR";
+    		locale = new Locale("fr");
     		break;
     	case R.id.button_en:
     		language = "EN";
+    		locale = new Locale("en");
     		break;
-    	case R.id.button_es:
+		case R.id.button_es:
     		language = "ES";
+    		locale = new Locale("es");
     		break;
+    	default: break;
     	}
+    	
+		Locale.setDefault(locale);
+		config.locale = locale;
+		getBaseContext().getResources().updateConfiguration(config,
+		      getBaseContext().getResources().getDisplayMetrics());
+
     	intent.putExtra(LANGUAGE, language);
     	startActivity(intent);
     }

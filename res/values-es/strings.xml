@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--  -->
+    <string name="button_formules">Les formules</string>
     <string name="app_name">Gustow</string>
     <string name="carte">La Carte</string>
-    
-    <!-- Home -->
-    <string name="button_formules">Les formules</string>
-    
-    <string name="carte_entree">Les </string>
+    <string name="carte_entree">Les Entrées</string>
     <string name="carte_plat">Les Plats</string>
     <string name="carte_dessert">Les Desserts</string>
     <string name="title_activity_main_activitycarte2">MainActivitycarte2</string>
