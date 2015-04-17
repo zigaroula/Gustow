@@ -1,12 +1,14 @@
 package infsi351.gustow;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class Home extends Activity {
@@ -22,12 +24,23 @@ public class Home extends Activity {
         System.out.println(language);
 		setContentView(R.layout.activity_home);
 		LinearLayout page2 = (LinearLayout) findViewById(R.id.page2);
+		
+		Button bFormules = (Button) findViewById(R.id.button_formules);
+		Button bCarte = (Button) findViewById(R.id.button_carte);
+		//custom font
+		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/always forever.ttf");
+		bFormules.setTypeface(tf);
+		bCarte.setTypeface(tf);		
+
 		if (language.equals("FR")) {
-			page2.setBackgroundResource(R.drawable.page2);
+			bFormules.setText("Les formules");
+			bCarte.setText("À la carte");
 		} else if (language.equals("ES")) {
-			page2.setBackgroundResource(R.drawable.page2_spa);
+			bFormules.setText("Hola que tal");
+			bFormules.setText("si senor");
 		} else {
-			page2.setBackgroundResource(R.drawable.page2_eng);
+			bFormules.setText("much formule");
+			bCarte.setText("very carte");
 		}
 	}
 

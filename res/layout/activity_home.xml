@@ -8,6 +8,7 @@
     android:background="@drawable/page2" >
 
     <Button
+        android:id="@+id/button_formules"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -15,6 +16,7 @@
         android:background="@android:color/transparent"/>
 
     <Button
+        android:id="@+id/button_carte"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
