@@ -12,6 +12,6 @@ public class Globals {
 		
 		//tests
 		plats.testBourrin();
-		cart.testBourrin();
+		//cart.testBourrin();
 	}
 }

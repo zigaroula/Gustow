@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class CheckCart extends Activity {
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,33 +33,32 @@ public class CheckCart extends Activity {
 
 		for (Formule f : Globals.cart.getFormules()) {
 			TextView text = new TextView(this);
-			text.setText(f.getId() + "\n   "
-					+ Globals.plats.get(f.getEntree()).getNom() + "\n   "
-					+ Globals.plats.get(f.getPlat()).getNom() + "\n   "
-					+ Globals.plats.get(f.getDessert()).getNom());
+			text.setText(Globals.plats.getFormules().get(f.getId()).getNom()
+					+ "\n   " + Globals.plats.get(f.getEntree()).getNom()
+					+ "\n   " + Globals.plats.get(f.getPlat()).getNom()
+					+ "\n   " + Globals.plats.get(f.getDessert()).getNom());
 			itemList.addView(text);
 
-			// un peu sale...
-			LinearLayout separator = new LinearLayout(this);
-			separator.setBackgroundColor(Color.BLACK);
-			separator.setLayoutParams(new LinearLayout.LayoutParams(
-					ViewGroup.LayoutParams.MATCH_PARENT, 2));
-			itemList.addView(separator);
+			itemList.addView(separator());
 		}
 
 		for (int id : Globals.cart.getPlats()) {
 			TextView text = new TextView(this);
 			text.setText(Globals.plats.get(id).getNom());
 
-			// un peu sale...
-			LinearLayout separator = new LinearLayout(this);
-			separator.setBackgroundColor(Color.BLACK);
-			separator.setLayoutParams(new LinearLayout.LayoutParams(
-					ViewGroup.LayoutParams.MATCH_PARENT, 2));
-			itemList.addView(text);
-			itemList.addView(separator);
+			itemList.addView(separator());
 		}
+		itemList.addView(separator());
 
+	}
+
+	private LinearLayout separator() {
+		// un peu sale...
+		LinearLayout separator = new LinearLayout(this);
+		separator.setBackgroundColor(Color.BLACK);
+		separator.setLayoutParams(new LinearLayout.LayoutParams(
+				ViewGroup.LayoutParams.MATCH_PARENT, 2));
+		return separator;
 	}
 
 }
