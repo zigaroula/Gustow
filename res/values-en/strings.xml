@@ -4,10 +4,10 @@
     <!--  -->
     <string name="app_name">Gustow</string>
     <string name="carte">La Carte</string>
-    
+
     <!-- Home -->
-    <string name="button_formules">Very formules</string>
-    
+    <string name="button_formules">Such formules</string>
+    <string name="button_carte">Very plats</string>
     <string name="carte_entree">Les </string>
     <string name="carte_plat">Les Plats</string>
     <string name="carte_dessert">Les Desserts</string>
@@ -29,7 +29,6 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_home_menu">HomeMenu</string>
     <string name="button_menu">Composer votre menu</string>
-    <string name="button_carte">À la carte</string>
     <string name="button_formule1">formule 1</string>
     <string name="button_formule2">formule 2</string>
     <string name="hello_world">Hello world!</string>

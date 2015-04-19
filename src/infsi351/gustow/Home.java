@@ -31,7 +31,7 @@ public class Home extends Activity {
 		Button bFormules = (Button) findViewById(R.id.button_formules);
 		Button bCarte = (Button) findViewById(R.id.button_carte);
 		//custom font
-		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/always forever.ttf");
+		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
 		bFormules.setTypeface(tf);
 		bCarte.setTypeface(tf);
 	}

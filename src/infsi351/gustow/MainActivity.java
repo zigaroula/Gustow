@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
@@ -24,7 +25,7 @@ public class MainActivity extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_main);
 
-		Globals.init(getApplicationContext());
+		Globals.init(getApplicationContext());		
 	}
 
 	@Override

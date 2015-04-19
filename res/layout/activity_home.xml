@@ -3,7 +3,7 @@
     android:id="@+id/page2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/page2"
+    android:background="@drawable/home"
     android:orientation="vertical"
     tools:context=".Home" >
 
@@ -14,7 +14,8 @@
         android:layout_weight="1"
         android:background="@android:color/transparent"
         android:onClick="selectMenu"
-        android:text="@string/button_formules" />
+        android:text="@string/button_formules"
+        android:textSize="54sp" />
 
     <Button
         android:id="@+id/button_carte"
@@ -23,6 +24,8 @@
         android:layout_weight="1"
         android:background="@android:color/transparent"
         android:onClick="selectCarte"
-        android:text="@string/button_carte" />
+        android:text="@string/button_carte"
+        android:textSize="54sp" />
+        
 
 </LinearLayout>
