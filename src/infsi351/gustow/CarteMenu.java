@@ -69,7 +69,8 @@ public class CarteMenu extends Activity {
 
 	public void setTypePlat(TypePlat type) {
 		LinearLayout produitsCarte = (LinearLayout) findViewById(R.id.produits_carte);
-		produitsCarte.setLayoutParams(new LinearLayout.LayoutParams(100,
+		LinearLayout menuTypePlat = (LinearLayout) findViewById(R.id.menu_typeplat);
+		menuTypePlat.setLayoutParams(new LinearLayout.LayoutParams(100,
 				ViewGroup.LayoutParams.MATCH_PARENT));
 		produitsCarte.removeAllViews();
 		for (Plat p : Globals.plats.getPlatsByType(type)) {
@@ -88,9 +89,9 @@ public class CarteMenu extends Activity {
 	}
 
 	private void setFrame(int idPlat, TypePlat typePlat) {
-		Globals.cart.add(idPlat);/*
+		//Globals.cart.add(idPlat);
 		// selectionne la frame à modifier
-		FrameLayout frame = PlatFrames.get(typePlat);
+		FrameLayout frame = (FrameLayout) findViewById(R.id.afficher_plat_selec);
 		Plat p = Globals.plats.get(idPlat);
 
 		// remplit la frame
@@ -102,7 +103,7 @@ public class CarteMenu extends Activity {
 
 		frame.addView(name);
 
-		buildingFormule.setPlatOfType(typePlat, idPlat);*/
+		buildingFormule.setPlatOfType(typePlat, idPlat);
 	}
 	
 	public void confirm(View view) {

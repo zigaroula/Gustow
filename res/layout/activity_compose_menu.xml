@@ -18,17 +18,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
+            android:layout_weight="1"
+            android:orientation="vertical" >
 
-            <TableRow
-                android:id="@+id/tableRow1"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/menu_row_entrees"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1" >
-
+                android:layout_weight="1"
+                android:orientation="horizontal">
                 <LinearLayout
                     android:id="@+id/menu_plat_entree"
                     android:layout_width="0dp"
@@ -49,12 +50,14 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1" >
                 </FrameLayout>
-            </TableRow>
+            </LinearLayout>
 
-            <TableRow
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/menu_row_plats"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1" >
+                android:layout_weight="1"
+                android:orientation="horizontal" >
 
                 <LinearLayout
                     android:id="@+id/menu_plat_plat"
@@ -82,12 +85,14 @@
                         android:layout_weight="1" >
                     </FrameLayout>
                 </FrameLayout>
-            </TableRow>
+            </LinearLayout>
 
-            <TableRow
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/menu_row_desserts"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1" >
+                android:layout_weight="1"
+                android:orientation="horizontal" >
 
                 <LinearLayout
                     android:id="@+id/menu_plat_dessert"
@@ -108,8 +113,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1" >
                 </FrameLayout>
-            </TableRow>
-        </TableLayout>
+            </LinearLayout>
+        </LinearLayout>
 
         <Button
             android:id="@+id/button_confirm_formule"

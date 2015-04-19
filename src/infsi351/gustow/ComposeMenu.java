@@ -14,14 +14,17 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 public class ComposeMenu extends Activity {
@@ -38,9 +41,13 @@ public class ComposeMenu extends Activity {
 
 	// FrameLayout où on affiche plus d'infos sur le plat sélectionné
 	private Map<TypePlat, FrameLayout> PlatFrames;
+	
+	
+	private int couleurCourante;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		couleurCourante = 0;
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -50,11 +57,13 @@ public class ComposeMenu extends Activity {
 
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		for (final Formule f : Globals.plats.getFormules()) {
+			final int couleurFormule = couleurCourante;
+			
 			Button b = buttonFormule(f);
 
 			b.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					selectFormule(f);
+					selectFormule(f, couleurFormule);
 				}
 			});
 
@@ -87,7 +96,7 @@ public class ComposeMenu extends Activity {
 		return true;
 	}
 
-	public void selectFormule(Formule f) {
+	public void selectFormule(Formule f, int couleur) {
 		if (currentFormule == f)
 			return;
 
@@ -97,9 +106,12 @@ public class ComposeMenu extends Activity {
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		menuFormule.setLayoutParams(new LinearLayout.LayoutParams(100,
 				ViewGroup.LayoutParams.MATCH_PARENT));
+		
+		LinearLayout menuPlat = (LinearLayout) findViewById(R.id.menu_plat);
+		menuPlat.setBackgroundColor(Globals.couleurs.get(couleur));
 
 		for (TypePlat type : rubriques) {
-
+			
 			LinearLayout layout = PlatLists.get(type);
 			layout.removeAllViews();
 			FrameLayout frame = PlatFrames.get(type);
@@ -108,7 +120,6 @@ public class ComposeMenu extends Activity {
 			// pour chaque plat, on cree le bouton
 			for (int i : f.getPlatsOfType(type)) {
 				Plat p = Globals.plats.get(i);
-
 				Button b=buttonPlat(p);
 				
 				final int id = p.getId();
@@ -167,7 +178,12 @@ public class ComposeMenu extends Activity {
 		b.setText(f.getNom());
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
 		b.setTypeface(tf);
-		b.setBackgroundColor(Color.TRANSPARENT);
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+			    LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		params.weight = 1.0f;
+		b.setLayoutParams(params);
+		b.setBackgroundColor(Globals.couleurs.get(couleurCourante));
+		couleurCourante = (couleurCourante+1)%Globals.couleurs.size();
 		return b;
 	}
 }
