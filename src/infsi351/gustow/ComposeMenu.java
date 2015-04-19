@@ -11,6 +11,8 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -44,11 +46,11 @@ public class ComposeMenu extends Activity {
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_compose_menu);
+		
 
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		for (final Formule f : Globals.plats.getFormules()) {
-			Button b = new Button(this);
-			b.setText(f.getNom());
+			Button b = buttonFormule(f);
 
 			b.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
@@ -107,9 +109,8 @@ public class ComposeMenu extends Activity {
 			for (int i : f.getPlatsOfType(type)) {
 				Plat p = Globals.plats.get(i);
 
-				Button b = new Button(this);
-				b.setText(p.getNom());
-
+				Button b=buttonPlat(p);
+				
 				final int id = p.getId();
 				final TypePlat t = type;
 
@@ -150,5 +151,23 @@ public class ComposeMenu extends Activity {
 		
 		Intent intent = new Intent(this, CheckCart.class);
 		startActivity(intent);
+	}
+	
+	public Button buttonPlat(Plat p) {
+		Button b = new Button(this);
+		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Bodoni 72.ttc");
+		b.setText(p.getNom());
+		b.setTypeface(tf);
+		b.setBackgroundColor(Color.TRANSPARENT);
+		return b;
+	}
+	
+	public Button buttonFormule(Formule f) {
+		Button b = new Button(this);
+		b.setText(f.getNom());
+		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
+		b.setTypeface(tf);
+		b.setBackgroundColor(Color.TRANSPARENT);
+		return b;
 	}
 }

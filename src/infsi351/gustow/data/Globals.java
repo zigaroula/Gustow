@@ -1,6 +1,7 @@
 package infsi351.gustow.data;
 
 import android.content.Context;
+import android.graphics.Typeface;
 
 // it's much easier to declare the "global" classes here rather than pass them through the new intents
 
@@ -17,7 +18,7 @@ public class Globals {
 		plats.getFormulesFromServer();
 		plats.loadFromFiles();
 		//plats.testBourrin();
-		
+		cart.add(0);
 		//cart.testBourrin();
 	}
 }
