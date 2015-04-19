@@ -1,9 +1,12 @@
 package infsi351.gustow.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Formule {
+public class Formule implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String nom;
 	private List<Integer> entrees=new ArrayList<Integer>();
@@ -27,6 +30,11 @@ public class Formule {
 		this.desserts = desserts;
 	}
 	
+	
+	
+	
+	
+
 	public void copyFormule(Formule f) {
 		this.id=f.id;
 		this.nom=f.nom;
