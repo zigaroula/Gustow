@@ -129,7 +129,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="confirm"
-            android:text="@string/button_confirm_formule" />
+            android:text="@string/button_confirm_formule"
+            android:background="@android:color/transparent"  />
     </LinearLayout>
 
 </LinearLayout>

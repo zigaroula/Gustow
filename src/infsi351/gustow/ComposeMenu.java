@@ -54,6 +54,9 @@ public class ComposeMenu extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_compose_menu);
 		
+		Button confirmButton = (Button) findViewById(R.id.button_confirm_formule);
+		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
+		confirmButton.setTypeface(tf);
 
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		for (final Formule f : Globals.plats.getFormules()) {
@@ -106,6 +109,12 @@ public class ComposeMenu extends Activity {
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		menuFormule.setLayoutParams(new LinearLayout.LayoutParams(100,
 				ViewGroup.LayoutParams.MATCH_PARENT));
+		
+		int childcount = menuFormule.getChildCount();
+		for (int i=0; i < childcount; i++){
+		      View v = menuFormule.getChildAt(i);
+		      ((Button) v).setText("");
+		}
 		
 		LinearLayout menuPlat = (LinearLayout) findViewById(R.id.menu_plat);
 		menuPlat.setBackgroundColor(Globals.couleurs.get(couleur));
@@ -195,6 +204,7 @@ public class ComposeMenu extends Activity {
 			    LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		params.weight = 1.0f;
 		b.setLayoutParams(params);
+		b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 50);
 		b.setBackgroundColor(Globals.couleurs.get(couleurCourante));
 		couleurCourante = (couleurCourante+1)%Globals.couleurs.size();
 		return b;
