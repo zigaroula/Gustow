@@ -109,6 +109,11 @@ public class ComposeMenu extends Activity {
 		
 		LinearLayout menuPlat = (LinearLayout) findViewById(R.id.menu_plat);
 		menuPlat.setBackgroundColor(Globals.couleurs.get(couleur));
+		
+		TextView titreMenu = (TextView) findViewById(R.id.titre_menu);
+		titreMenu.setText(f.getNom());
+		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
+		titreMenu.setTypeface(tf);
 
 		for (TypePlat type : rubriques) {
 			
@@ -120,7 +125,7 @@ public class ComposeMenu extends Activity {
 			// pour chaque plat, on cree le bouton
 			for (int i : f.getPlatsOfType(type)) {
 				Plat p = Globals.plats.get(i);
-				Button b=buttonPlat(p);
+				final Button b=buttonPlat(p);
 				
 				final int id = p.getId();
 				final TypePlat t = type;
@@ -128,6 +133,7 @@ public class ComposeMenu extends Activity {
 				b.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View v) {
 						setFrame(id, t);
+						b.setTypeface(b.getTypeface(), Typeface.BOLD);
 					}
 				});
 
@@ -137,6 +143,13 @@ public class ComposeMenu extends Activity {
 	}
 
 	private void setFrame(int idPlat, TypePlat typePlat) {
+		LinearLayout layout = PlatLists.get(typePlat);
+		int childCount = layout.getChildCount();
+		for (int i = 0 ; i < childCount ; i++) {
+			View v = layout.getChildAt(i);
+			((Button) v).setTypeface(((Button)v).getTypeface(), Typeface.NORMAL);
+			//((Button) v).setBackgroundColor(Globals.couleurs.get(4));
+		}
 		// selectionne la frame à modifier
 		FrameLayout frame = PlatFrames.get(typePlat);
 		Plat p = Globals.plats.get(idPlat);
