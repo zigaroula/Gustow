@@ -58,10 +58,20 @@ public class CheckCart extends Activity {
 			itemList.addView(separator());
 		}
 
-		for (int id : Globals.cart.getPlats()) {
+		for (final int id : Globals.cart.getPlats()) {
 			TextView text = new TextView(this);
 			text.setText(Globals.plats.get(id).getNom());
+			itemList.addView(text);
+			Button b = new Button(this);
+			b.setText("rm");
 
+			b.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					rmPlat(id);
+				}
+			});
+			
+			itemList.addView(b);
 			itemList.addView(separator());
 		}
 		itemList.addView(separator());
@@ -82,4 +92,8 @@ public class CheckCart extends Activity {
 		displayCart();
 	}
 
+	private void rmPlat(int idPlat) {
+		Globals.cart.rm(idPlat);
+		displayCart();
+	}
 }

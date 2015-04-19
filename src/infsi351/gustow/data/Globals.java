@@ -18,7 +18,7 @@ public class Globals {
 		plats.getFormulesFromServer();
 		plats.loadFromFiles();
 		//plats.testBourrin();
-		
+		cart.add(0);
 		//cart.testBourrin();
 	}
 }

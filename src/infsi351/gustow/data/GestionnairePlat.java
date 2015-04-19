@@ -180,4 +180,14 @@ public class GestionnairePlat {
 	public ArrayList<Formule> getFormules() {
 		return formules;
 	}
+	
+	public ArrayList<Plat> getPlatsByType (TypePlat type) {
+		ArrayList<Plat> plats = new ArrayList<Plat>();
+		for (int i : map.keySet()) {
+			if (map.get(i).getType()==type) {
+				plats.add(map.get(i));
+			}
+		}
+		return plats;
+	}
 }

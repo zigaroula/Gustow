@@ -1,65 +1,37 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".CarteMenu" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:scrollHorizontally="false"
-        android:text="@string/carte"
-        android:textSize="20sp" />
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical" >
+        android:layout_weight="0.92" >
 
-        <Button
-            android:id="@+id/button_carteentree"
-            android:layout_width="200dp"
-            android:layout_height="160dp"
-            android:background="@android:color/transparent"
-            android:onClick="carte_e"
-            android:text="@string/carte_entree" />
-    </LinearLayout>
-    
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical" >
+        <LinearLayout
+            android:id="@+id/menu_typeplat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/button_cartedessert"
-            android:layout_width="200dp"
-            android:layout_height="160dp"
-            android:background="@android:color/transparent"
-            android:onClick="carte_d"
-            android:text="@string/carte_dessert" />
-    </LinearLayout>
-    
-    
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:orientation="vertical" >
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/button_carteplat"
-            android:layout_width="200dp"
-            android:layout_height="160dp"
-            android:background="@android:color/transparent"
-            android:onClick="carte_p"
-            android:text="@string/carte_plat" />
+        <LinearLayout
+            android:id="@+id/produits_carte"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </FrameLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
