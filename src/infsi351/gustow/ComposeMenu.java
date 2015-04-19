@@ -133,7 +133,9 @@ public class ComposeMenu extends Activity {
 		frame.removeAllViews();
 
 		TextView name = new TextView(this);
-		name.setBackgroundResource(R.drawable.doge);
+		String path = p.getPathImage();
+		int id = getResources().getIdentifier(path, "drawable",getApplicationContext().getPackageName());
+		name.setBackgroundResource(id);
 		name.setText(p.getNom());
 
 		frame.addView(name);
