@@ -123,6 +123,7 @@ public class ComposeMenu extends Activity {
 		titreMenu.setText(f.getNom());
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
 		titreMenu.setTypeface(tf);
+		titreMenu.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
 
 		for (TypePlat type : rubriques) {
 			
