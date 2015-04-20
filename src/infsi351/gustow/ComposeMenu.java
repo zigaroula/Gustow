@@ -18,13 +18,13 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 public class ComposeMenu extends Activity {
@@ -41,8 +41,7 @@ public class ComposeMenu extends Activity {
 
 	// FrameLayout où on affiche plus d'infos sur le plat sélectionné
 	private Map<TypePlat, FrameLayout> PlatFrames;
-	
-	
+
 	private int couleurCourante;
 
 	@Override
@@ -53,19 +52,20 @@ public class ComposeMenu extends Activity {
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_compose_menu);
-		
+
 		Button confirmButton = (Button) findViewById(R.id.button_confirm_formule);
-		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
+		Typeface tf = Typeface.createFromAsset(getAssets(),
+				"fonts/SnellRoundhand.ttc");
 		confirmButton.setTypeface(tf);
 		confirmButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
 		// BIEN POUR LE PREMIER MENU MAIS MOCHE POUR LES AUTRES
-		//TextView titreMenu = (TextView) findViewById(R.id.titre_menu);
-		//titreMenu.setX((int) titreMenu.getX() - 50);
-		
+		// TextView titreMenu = (TextView) findViewById(R.id.titre_menu);
+		// titreMenu.setX((int) titreMenu.getX() - 50);
+
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		for (final Formule f : Globals.plats.getFormules()) {
 			final int couleurFormule = couleurCourante;
-			
+
 			Button b = buttonFormule(f);
 
 			b.setOnClickListener(new View.OnClickListener() {
@@ -76,8 +76,8 @@ public class ComposeMenu extends Activity {
 
 			menuFormule.addView(b);
 		}
-		
-		buildingFormule=new Formule();
+
+		buildingFormule = new Formule();
 
 		PlatLists = new EnumMap<TypePlat, LinearLayout>(TypePlat.class);
 		PlatLists.put(TypePlat.Entree,
@@ -103,54 +103,56 @@ public class ComposeMenu extends Activity {
 		return true;
 	}
 
-	public void selectFormule(Formule f, int couleur) {
+	public void selectFormule(Formule f, final int couleur) {
 		if (currentFormule == f)
 			return;
 
 		currentFormule = f;
 		buildingFormule.copyFormule(f);
-		
+
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		menuFormule.setLayoutParams(new LinearLayout.LayoutParams(100,
 				ViewGroup.LayoutParams.MATCH_PARENT));
-		
+
 		int childcount = menuFormule.getChildCount();
-		for (int i=0; i < childcount; i++){
-		      View v = menuFormule.getChildAt(i);
-		      ((Button) v).setText("");
+		for (int i = 0; i < childcount; i++) {
+			View v = menuFormule.getChildAt(i);
+			((Button) v).setText("");
 		}
-		
+
 		LinearLayout menuPlat = (LinearLayout) findViewById(R.id.menu_plat);
 		menuPlat.setBackgroundColor(Globals.couleurs.get(couleur));
 		
 		TextView blankSpace = (TextView) findViewById(R.id.blank);
 		blankSpace.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
-		
 		TextView titreMenu = (TextView) findViewById(R.id.titre_menu);
 		titreMenu.setText(f.getNom());
-		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
+		Typeface tf = Typeface.createFromAsset(getAssets(),
+				"fonts/SnellRoundhand.ttc");
 		titreMenu.setTypeface(tf);
 		titreMenu.setTypeface(titreMenu.getTypeface(), Typeface.BOLD);
 		titreMenu.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
 
 		for (TypePlat type : rubriques) {
-			
+
 			LinearLayout layout = PlatLists.get(type);
 			layout.removeAllViews();
 			FrameLayout frame = PlatFrames.get(type);
 			frame.removeAllViews();
+			
+			setFrame(1, type, couleur, true);
 
 			// pour chaque plat, on cree le bouton
 			for (int i : f.getPlatsOfType(type)) {
 				Plat p = Globals.plats.get(i);
-				final Button b=buttonPlat(p);
-				
+				final Button b = buttonPlat(p);
+
 				final int id = p.getId();
 				final TypePlat t = type;
 
 				b.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View v) {
-						setFrame(id, t);
+						setFrame(id, t, couleur, false);
 						b.setTypeface(b.getTypeface(), Typeface.BOLD_ITALIC);
 					}
 				});
@@ -160,13 +162,13 @@ public class ComposeMenu extends Activity {
 		}
 	}
 
-	private void setFrame(int idPlat, TypePlat typePlat) {
+	private void setFrame(int idPlat, TypePlat typePlat, int color, Boolean init) {
 		LinearLayout layout = PlatLists.get(typePlat);
 		int childCount = layout.getChildCount();
-		for (int i = 0 ; i < childCount ; i++) {
+		for (int i = 0; i < childCount; i++) {
 			Button v = (Button) layout.getChildAt(i);
 			v.setTypeface(v.getTypeface(), Typeface.ITALIC);
-			//((Button) v).setBackgroundColor(Globals.couleurs.get(4));
+			// ((Button) v).setBackgroundColor(Globals.couleurs.get(4));
 		}
 		// selectionne la frame à modifier
 		FrameLayout frame = PlatFrames.get(typePlat);
@@ -175,49 +177,64 @@ public class ComposeMenu extends Activity {
 		// remplit la frame
 		frame.removeAllViews();
 
-		TextView name = new TextView(this);
-		String path = p.getPathImage();
-		int id = getResources().getIdentifier(path, "drawable",getApplicationContext().getPackageName());
-		name.setBackgroundResource(id);
-		name.setText(p.getNom());
+		if (!init) {
+			TextView name = new TextView(this);
+			String path = p.getPathImage();
+			int id = getResources().getIdentifier(path, "drawable",
+					getApplicationContext().getPackageName());
+			name.setText(p.getNom());
+			name.setBackgroundResource(id);
 
-		frame.addView(name);
+			frame.addView(name);
+		
+		}
+
+		int idFrame = getResources().getIdentifier("frame" + (color + 1),
+				"drawable", getApplicationContext().getPackageName());
+
+		View mask = new View(this);
+		mask.setBackgroundResource(idFrame);
+		mask.setLayoutParams(new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+		frame.addView(mask);
 
 		buildingFormule.setPlatOfType(typePlat, idPlat);
 	}
-	
+
 	public void confirm(View view) {
-		Formule f=new Formule();
+		Formule f = new Formule();
 		f.copyFormule(buildingFormule);
 		Globals.cart.add(f);
-		
+
 		Intent intent = new Intent(this, CheckCart.class);
 		startActivity(intent);
 	}
-	
+
 	public Button buttonPlat(Plat p) {
 		Button b = new Button(this);
-		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Bodoni 72.ttc");
+		Typeface tf = Typeface.createFromAsset(getAssets(),
+				"fonts/Bodoni 72.ttc");
 		b.setText(p.getNom());
 		b.setTypeface(tf,Typeface.ITALIC);
 		b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
 		b.setBackgroundColor(Color.TRANSPARENT);
 		return b;
 	}
-	
+
 	public Button buttonFormule(Formule f) {
 		Button b = new Button(this);
 		b.setText(f.getNom());
-		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
+		Typeface tf = Typeface.createFromAsset(getAssets(),
+				"fonts/SnellRoundhand.ttc");
 		b.setTypeface(tf);
-		
+
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-			    LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		params.weight = 1.0f;
 		b.setLayoutParams(params);
 		b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 50);
 		b.setBackgroundColor(Globals.couleurs.get(couleurCourante));
-		couleurCourante = (couleurCourante+1)%Globals.couleurs.size();
+		couleurCourante = (couleurCourante + 1) % Globals.couleurs.size();
 		return b;
 	}
 }
