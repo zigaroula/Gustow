@@ -57,6 +57,7 @@ public class ComposeMenu extends Activity {
 		Button confirmButton = (Button) findViewById(R.id.button_confirm_formule);
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
 		confirmButton.setTypeface(tf);
+		confirmButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
 
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		for (final Formule f : Globals.plats.getFormules()) {
@@ -123,7 +124,7 @@ public class ComposeMenu extends Activity {
 		titreMenu.setText(f.getNom());
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
 		titreMenu.setTypeface(tf);
-		titreMenu.setTextSize(TypedValue.COMPLEX_UNIT_SP, 4);
+		titreMenu.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
 
 		for (TypePlat type : rubriques) {
 			
