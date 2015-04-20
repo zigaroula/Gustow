@@ -12,26 +12,52 @@
 
         <LinearLayout
             android:id="@+id/menu_typeplat"
-            android:layout_width="0dp"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:orientation="vertical" >
-
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/produits_carte"
-            android:layout_width="0dp"
+            android:id="@+id/carte_typeplat"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:orientation="vertical" >
 
-            <FrameLayout
-                android:id="@+id/afficher_plat_selec"
+            <TextView
+                android:id="@+id/titre_carte"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-            </FrameLayout>
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Large Text" />
 
+            <LinearLayout
+                android:id="@+id/produits_carte"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    android:id="@+id/afficher_plat_selec"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                </FrameLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button_carte_view_cart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="viewCart"
+                android:text="@string/button_carte_view_cart"
+                android:background="@drawable/" />
+
+            <TextView
+                android:id="@+id/blank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=" " />
         </LinearLayout>
     </LinearLayout>
 

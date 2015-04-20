@@ -66,5 +66,6 @@
     <string name="carte_dessert5">Dessert 5</string>
     <string name="title_activity_commande_validee">CommandeValidee</string>
     <string name="commande_validee">Commande Validée !</string>
+    <string name="button_carte_view_cart">Voir mon panier</string>
 
 </resources>
