@@ -7,12 +7,12 @@
     tools:context=".CheckCart" >
 
     <TextView
-            android:id="@+id/blank"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text=" "/>
-    
+        android:id="@+id/blank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=" " />
+
     <TextView
         android:id="@+id/title_cart"
         android:layout_width="match_parent"
@@ -21,13 +21,13 @@
         android:gravity="center"
         android:text="@string/title_cart"
         android:textSize="62sp" />
-    
+
     <TextView
-            android:id="@id/blank"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text=" "/>
+        android:id="@id/blank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=" " />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -54,6 +54,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:onClick="retourFormule"
             android:text="@string/button_cart_formule"
             android:textSize="25sp" />
 
@@ -63,6 +64,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:onClick="retourCarte"
             android:text="@string/button_cart_carte"
             android:textSize="25sp" />
 
@@ -72,6 +74,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:onClick="validerCommande"
             android:text="@string/button_commande"
             android:textSize="25sp" />
     </LinearLayout>

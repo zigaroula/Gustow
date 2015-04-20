@@ -208,6 +208,7 @@ public class ComposeMenu extends Activity {
 
 		Intent intent = new Intent(this, CheckCart.class);
 		startActivity(intent);
+		finish();
 	}
 
 	public Button buttonPlat(Plat p) {
