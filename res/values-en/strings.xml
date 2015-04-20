@@ -6,8 +6,8 @@
     <string name="carte">La Carte</string>
 
     <!-- Home -->
-    <string name="button_formules">Such formules</string>
-    <string name="button_carte">Very plats</string>
+    <string name="button_formules">Set Menus</string>
+    <string name="button_carte">À la carte Menu</string>
     <string name="carte_entree">Les </string>
     <string name="carte_plat">Les Plats</string>
     <string name="carte_dessert">Les Desserts</string>

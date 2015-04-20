@@ -8,9 +8,12 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -28,12 +31,15 @@ public class CheckCart extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_check_cart);
 
+		TextView blankSpace = (TextView) findViewById(R.id.blank);
+		blankSpace.setTextSize(TypedValue.COMPLEX_UNIT_SP, 35);
+		
 		TextView titre = (TextView) findViewById(R.id.title_cart);
 		Button commander = (Button) findViewById(R.id.button_commande);
 		Button bFormule = (Button) findViewById(R.id.button_cart_formule);
 		Button bCarte = (Button) findViewById(R.id.button_cart_carte);
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
-		titre.setTypeface(tf);
+		titre.setTypeface(tf, Typeface.BOLD);
 		commander.setTypeface(tf);
 		bFormule.setTypeface(tf);
 		bCarte.setTypeface(tf);
@@ -51,34 +57,58 @@ public class CheckCart extends Activity {
 	private void displayCart() {
 		LinearLayout itemList = (LinearLayout) findViewById(R.id.item_list);
 		itemList.removeAllViews();
-
+		itemList.addView(separator());
 		for (final Formule f : Globals.cart.getFormules()) {
+			LinearLayout formuleEtBouton = new LinearLayout(this);
+			formuleEtBouton.setOrientation(LinearLayout.HORIZONTAL);
+			formuleEtBouton.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
+			formuleEtBouton.setPadding(0, 0, 0, 10);
+			itemList.addView(formuleEtBouton);
+			
 			TextView text = new TextView(this);
+			text.setTypeface(text.getTypeface(), Typeface.ITALIC);
+			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 			text.setText(f.getNom()
 					+ "\n   " + Globals.plats.get(f.getEntree()).getNom()
 					+ "\n   " + Globals.plats.get(f.getPlat()).getNom()
 					+ "\n   " + Globals.plats.get(f.getDessert()).getNom());
-			itemList.addView(text);
-			
-			Button b = new Button(this);
-			b.setText("rm");
+			text.setHeight(200);
+			formuleEtBouton.addView(text);
 
+			Button b = new Button(this);
+			b.setBackgroundColor(Color.TRANSPARENT);
+			b.setText("X");
+			b.setGravity(Gravity.RIGHT);
+			b.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
+			
 			b.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					rmFormule(f);
 				}
 			});
 			
-			itemList.addView(b);
+			formuleEtBouton.addView(b);
 			itemList.addView(separator());
 		}
 
 		for (final int id : Globals.cart.getPlats()) {
+			LinearLayout formuleEtBouton = new LinearLayout(this);
+			formuleEtBouton.setOrientation(LinearLayout.HORIZONTAL);
+			formuleEtBouton.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
+			formuleEtBouton.setPadding(0, 0, 0, 10);
+			itemList.addView(formuleEtBouton);
+			
 			TextView text = new TextView(this);
 			text.setText(Globals.plats.get(id).getNom());
-			itemList.addView(text);
+			text.setTypeface(text.getTypeface(), Typeface.ITALIC);
+			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+			formuleEtBouton.addView(text);
+			
 			Button b = new Button(this);
-			b.setText("rm");
+			b.setBackgroundColor(Color.TRANSPARENT);
+			b.setText("X");
+			b.setGravity(Gravity.RIGHT);
+			b.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
 
 			b.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
@@ -86,10 +116,9 @@ public class CheckCart extends Activity {
 				}
 			});
 			
-			itemList.addView(b);
+			formuleEtBouton.addView(b);
 			itemList.addView(separator());
 		}
-		itemList.addView(separator());
 
 	}
 

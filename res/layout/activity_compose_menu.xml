@@ -19,11 +19,25 @@
         android:orientation="vertical" >
 
         <TextView
+            android:id="@+id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" "/>
+        
+        <TextView
             android:id="@+id/titre_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Large Text"/>
+        
+        <TextView
+            android:id="@id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" "/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,6 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="horizontal" >
 
                 <LinearLayout
@@ -65,6 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="horizontal" >
 
                 <LinearLayout
@@ -100,6 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="horizontal" >
 
                 <LinearLayout
@@ -131,6 +148,13 @@
             android:background="@android:color/transparent"
             android:onClick="confirm"
             android:text="@string/button_confirm_formule" />
+        
+        <TextView
+            android:id="@id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" "/>
 
     </LinearLayout>
 

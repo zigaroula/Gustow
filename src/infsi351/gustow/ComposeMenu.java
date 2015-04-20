@@ -123,6 +123,9 @@ public class ComposeMenu extends Activity {
 		LinearLayout menuPlat = (LinearLayout) findViewById(R.id.menu_plat);
 		menuPlat.setBackgroundColor(Globals.couleurs.get(couleur));
 		
+		TextView blankSpace = (TextView) findViewById(R.id.blank);
+		blankSpace.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+		
 		TextView titreMenu = (TextView) findViewById(R.id.titre_menu);
 		titreMenu.setText(f.getNom());
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
@@ -197,7 +200,7 @@ public class ComposeMenu extends Activity {
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Bodoni 72.ttc");
 		b.setText(p.getNom());
 		b.setTypeface(tf,Typeface.ITALIC);
-		b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+		b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
 		b.setBackgroundColor(Color.TRANSPARENT);
 		return b;
 	}

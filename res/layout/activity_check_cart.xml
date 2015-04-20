@@ -7,13 +7,27 @@
     tools:context=".CheckCart" >
 
     <TextView
+            android:id="@+id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" "/>
+    
+    <TextView
         android:id="@+id/title_cart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:gravity="center"
         android:text="@string/title_cart"
-        android:textSize="54sp" />
+        android:textSize="62sp" />
+    
+    <TextView
+            android:id="@id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" "/>
 
     <ScrollView
         android:layout_width="match_parent"
