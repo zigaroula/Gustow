@@ -21,6 +21,8 @@
 
     <!-- CheckCart -->
     <string name="title_activity_check_cart">CheckCart</string>
+    <string name="title_cart">Mon panier</string>
+    
 
     <!-- Carte -->
 

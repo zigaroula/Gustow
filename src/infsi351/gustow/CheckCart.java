@@ -6,6 +6,7 @@ import infsi351.gustow.data.Plat;
 import infsi351.gustow.data.TypePlat;
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -27,6 +28,9 @@ public class CheckCart extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_check_cart);
 
+		TextView titre = (TextView) findViewById(R.id.title_cart);
+		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
+		titre.setTypeface(tf);
 		displayCart();
 
 	}
