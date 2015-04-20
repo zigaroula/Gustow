@@ -148,7 +148,7 @@ public class ComposeMenu extends Activity {
 				b.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View v) {
 						setFrame(id, t);
-						b.setTypeface(b.getTypeface(), Typeface.BOLD);
+						b.setTypeface(b.getTypeface(), Typeface.BOLD_ITALIC);
 					}
 				});
 
@@ -196,7 +196,7 @@ public class ComposeMenu extends Activity {
 		Button b = new Button(this);
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Bodoni 72.ttc");
 		b.setText(p.getNom());
-		b.setTypeface(tf);
+		b.setTypeface(tf,Typeface.ITALIC);
 		b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
 		b.setBackgroundColor(Color.TRANSPARENT);
 		return b;
@@ -207,6 +207,7 @@ public class ComposeMenu extends Activity {
 		b.setText(f.getNom());
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
 		b.setTypeface(tf);
+		
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 			    LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		params.weight = 1.0f;

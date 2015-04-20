@@ -22,7 +22,9 @@
     <!-- CheckCart -->
     <string name="title_activity_check_cart">CheckCart</string>
     <string name="title_cart">Mon panier</string>
-    
+    <string name="button_cart_formule">Ajouter une formule</string>
+    <string name="button_cart_carte">Ajouter depuis la carte</string>
+    <string name="button_commande">Je commande !</string>
 
     <!-- Carte -->
 

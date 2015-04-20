@@ -92,13 +92,6 @@ public class GestionnairePlat {
 	public void getPlatsFromServer(){
 		ArrayList<Plat> plats = new ArrayList<Plat>();
 		
-		//SIMULATION DE LA REQUETE POUR LES PLATS
-		/*Plat p1=new Plat(0,"Opera",TypePlat.Dessert, 200, "", "L'opéra est un entremets au chocolat et au café. C'est un met de luxe.");
-		Plat p2=new Plat(1,"Couscous",TypePlat.PlatPrincipal, 20, "", "Le couscous est un plat berbère à base de semoule de blé dur.");
-		Plat p3=new Plat(2,"Terrine de poisson",TypePlat.Entree, 230, "", "Une délicieuse terrine de saumon, servi avec salade");
-		Plat p4=new Plat(3,"Bleu Burger",TypePlat.PlatPrincipal, 3, "", "Un burger avec du bleu à la place du cheddar");
-		*/
-		
 		// ENTREES
 		Plat e1=new Plat(0,"Noix de Saint-Jacques au caramel d'orange",TypePlat.Entree, 15, "e1", "Saint-Jacques et orange, voilà un mariage parfaitement réussi. Ce plat délicieux est accompagné de feuilles de mâches ou de cresson à la saveur un peu poivrée.");
 		Plat e2=new Plat(1,"Soupe de potiron, crème glacée au foie gras",TypePlat.Entree, 10, "e2", "Potage raffiné et original : ce velouté de potiron est accompagné de quenelles de crème glacée au foie gras.");
@@ -165,8 +158,6 @@ public class GestionnairePlat {
 		plats.add(d3);
 		plats.add(d4);
 		plats.add(d5);
-		
-		
 		
 		//FIN DE LA REQUETE ET DE SON TRAITEMENT (parsage XML) --> les plats sont stockés dans la liste plats
 		

@@ -29,8 +29,14 @@ public class CheckCart extends Activity {
 		setContentView(R.layout.activity_check_cart);
 
 		TextView titre = (TextView) findViewById(R.id.title_cart);
+		Button commander = (Button) findViewById(R.id.button_commande);
+		Button bFormule = (Button) findViewById(R.id.button_cart_formule);
+		Button bCarte = (Button) findViewById(R.id.button_cart_carte);
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
 		titre.setTypeface(tf);
+		commander.setTypeface(tf);
+		bFormule.setTypeface(tf);
+		bCarte.setTypeface(tf);
 		displayCart();
 
 	}
