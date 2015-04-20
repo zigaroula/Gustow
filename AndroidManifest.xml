@@ -62,6 +62,10 @@
             android:name="infsi351.gustow.CheckCart"
             android:label="@string/title_activity_check_cart" >
         </activity>
+        <activity
+            android:name="infsi351.gustow.CommandeValidee"
+            android:label="@string/title_activity_commande_validee" >
+        </activity>
     </application>
 
 </manifest>

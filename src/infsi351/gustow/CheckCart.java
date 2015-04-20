@@ -5,6 +5,7 @@ import infsi351.gustow.data.Globals;
 import infsi351.gustow.data.Plat;
 import infsi351.gustow.data.TypePlat;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -44,6 +45,13 @@ public class CheckCart extends Activity {
 		bFormule.setTypeface(tf);
 		bCarte.setTypeface(tf);
 		displayCart();
+		
+		Button commande = (Button) findViewById(R.id.button_commande);
+		commande.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				validerCommande();
+			}
+		});
 
 	}
 
@@ -139,5 +147,10 @@ public class CheckCart extends Activity {
 	private void rmPlat(int idPlat) {
 		Globals.cart.rm(idPlat);
 		displayCart();
+	}
+	
+	private void validerCommande() {
+		Intent intent = new Intent(this, CommandeValidee.class);
+		startActivity(intent);
 	}
 }

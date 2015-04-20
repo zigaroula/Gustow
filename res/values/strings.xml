@@ -64,5 +64,7 @@
     <string name="carte_dessert3">Dessert 3</string>
     <string name="carte_dessert4">Dessert 4</string>
     <string name="carte_dessert5">Dessert 5</string>
+    <string name="title_activity_commande_validee">CommandeValidee</string>
+    <string name="commande_validee">Commande Validée !</string>
 
 </resources>
