@@ -15,6 +15,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -162,7 +163,7 @@ public class ComposeMenu extends Activity {
 		}
 	}
 
-	private void setFrame(int idPlat, TypePlat typePlat, int color, Boolean init) {
+	private void setFrame(final int idPlat, final TypePlat typePlat, final int color, Boolean init) {
 		LinearLayout layout = PlatLists.get(typePlat);
 		int childCount = layout.getChildCount();
 		for (int i = 0; i < childCount; i++) {
@@ -178,18 +179,17 @@ public class ComposeMenu extends Activity {
 		frame.removeAllViews();
 
 		if (!init) {
-			TextView name = new TextView(this);
+			View photo = new View(this);
 			String path = p.getPathImage();
 			int id = getResources().getIdentifier(path, "drawable",
 					getApplicationContext().getPackageName());
-			name.setText(p.getNom());
-			name.setBackgroundResource(id);
+			photo.setBackgroundResource(id);
 
-			frame.addView(name);
+			frame.addView(photo);
 		
 		}
 
-		int idFrame = getResources().getIdentifier("frame" + (color),
+		int idFrame = getResources().getIdentifier("frame" + color,
 				"drawable", getApplicationContext().getPackageName());
 
 		View mask = new View(this);
@@ -197,6 +197,14 @@ public class ComposeMenu extends Activity {
 		mask.setLayoutParams(new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		frame.addView(mask);
+		
+		if(!init) {
+			mask.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					frameDescription(idPlat, typePlat, color);
+				}
+			});
+		}
 
 		buildingFormule.setPlatOfType(typePlat, idPlat);
 	}
@@ -237,5 +245,39 @@ public class ComposeMenu extends Activity {
 		b.setBackgroundColor(Globals.couleurs.get(couleurCourante));
 		couleurCourante = (couleurCourante + 1) % Globals.couleurs.size();
 		return b;
+	}
+	
+	public void frameDescription(int idPlat, TypePlat typePlat, int color) {
+		FrameLayout frame = PlatFrames.get(typePlat);
+		Plat p = Globals.plats.get(idPlat);
+
+		// remplit la frame
+		frame.removeAllViews();
+
+
+		View photo = new View(this);
+		String path = p.getPathImage();
+		int id = getResources().getIdentifier(path, "drawable",
+				getApplicationContext().getPackageName());
+		photo.setBackgroundResource(id);
+
+		frame.addView(photo);
+		
+		TextView desc=new TextView(this);
+		desc.setText(p.getDescription());
+		desc.setBackgroundColor(Color.argb(150, 0, 0, 0));
+		desc.setTextColor(Color.WHITE);
+		desc.setGravity(Gravity.CENTER);
+		frame.addView(desc);
+
+
+		int idFrame = getResources().getIdentifier("frame" + (color),
+				"drawable", getApplicationContext().getPackageName());
+
+		View mask = new View(this);
+		mask.setBackgroundResource(idFrame);
+		mask.setLayoutParams(new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+		frame.addView(mask);
 	}
 }
