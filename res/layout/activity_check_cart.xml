@@ -29,23 +29,38 @@
         android:gravity="center"
         android:text=" " />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" >
+        android:layout_weight="0.25"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:id="@+id/item_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </ScrollView>
 
         <LinearLayout
-            android:id="@+id/item_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
             android:orientation="vertical" >
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="104dp"
+        android:layout_weight="0.00"
         android:orientation="horizontal" >
 
         <Button

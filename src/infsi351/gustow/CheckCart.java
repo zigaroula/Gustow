@@ -69,7 +69,7 @@ public class CheckCart extends Activity {
 
 			TextView text = new TextView(this);
 			text.setTypeface(text.getTypeface(), Typeface.ITALIC);
-			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
 			text.setText(f.getNom() + "\n   "
 					+ Globals.plats.get(f.getEntree()).getNom() + "\n   "
 					+ Globals.plats.get(f.getPlat()).getNom() + "\n   "
@@ -103,9 +103,10 @@ public class CheckCart extends Activity {
 			itemList.addView(formuleEtBouton);
 
 			TextView text = new TextView(this);
-			text.setText(Globals.plats.get(id).getNom());
+			text.setText(" "+Globals.plats.get(id).getNom());
 			text.setTypeface(text.getTypeface(), Typeface.ITALIC);
-			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+			text.setHeight(70);
 			formuleEtBouton.addView(text);
 
 			Button b = new Button(this);

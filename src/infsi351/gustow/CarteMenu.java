@@ -169,6 +169,7 @@ public class CarteMenu extends Activity {
 	public void viewCart(View v) {
 		Intent intent = new Intent(this, CheckCart.class);
 		startActivity(intent);
+		finish();
 	}
 	
 }

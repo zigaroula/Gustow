@@ -58,7 +58,7 @@ public class ComposeMenu extends Activity {
 		Typeface tf = Typeface.createFromAsset(getAssets(),
 				"fonts/SnellRoundhand.ttc");
 		confirmButton.setTypeface(tf);
-		confirmButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
+		confirmButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
 		// BIEN POUR LE PREMIER MENU MAIS MOCHE POUR LES AUTRES
 		// TextView titreMenu = (TextView) findViewById(R.id.titre_menu);
 		// titreMenu.setX((int) titreMenu.getX() - 50);
