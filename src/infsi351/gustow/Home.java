@@ -32,8 +32,8 @@ public class Home extends Activity {
 		Button bCarte = (Button) findViewById(R.id.button_carte);
 		//custom font
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
-		bFormules.setTypeface(tf);
-		bCarte.setTypeface(tf);
+		bFormules.setTypeface(tf,Typeface.BOLD);
+		bCarte.setTypeface(tf,Typeface.BOLD);
 	}
 
 	@Override

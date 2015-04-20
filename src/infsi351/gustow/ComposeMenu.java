@@ -161,8 +161,8 @@ public class ComposeMenu extends Activity {
 		LinearLayout layout = PlatLists.get(typePlat);
 		int childCount = layout.getChildCount();
 		for (int i = 0 ; i < childCount ; i++) {
-			View v = layout.getChildAt(i);
-			((Button) v).setTypeface(((Button)v).getTypeface(), Typeface.NORMAL);
+			Button v = (Button) layout.getChildAt(i);
+			v.setTypeface(v.getTypeface(), Typeface.ITALIC);
 			//((Button) v).setBackgroundColor(Globals.couleurs.get(4));
 		}
 		// selectionne la frame à modifier
@@ -197,6 +197,7 @@ public class ComposeMenu extends Activity {
 		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Bodoni 72.ttc");
 		b.setText(p.getNom());
 		b.setTypeface(tf);
+		b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
 		b.setBackgroundColor(Color.TRANSPARENT);
 		return b;
 	}
