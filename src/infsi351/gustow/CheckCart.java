@@ -34,25 +34,18 @@ public class CheckCart extends Activity {
 
 		TextView blankSpace = (TextView) findViewById(R.id.blank);
 		blankSpace.setTextSize(TypedValue.COMPLEX_UNIT_SP, 35);
-		
+
 		TextView titre = (TextView) findViewById(R.id.title_cart);
 		Button commander = (Button) findViewById(R.id.button_commande);
 		Button bFormule = (Button) findViewById(R.id.button_cart_formule);
 		Button bCarte = (Button) findViewById(R.id.button_cart_carte);
-		Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SnellRoundhand.ttc");
+		Typeface tf = Typeface.createFromAsset(getAssets(),
+				"fonts/SnellRoundhand.ttc");
 		titre.setTypeface(tf, Typeface.BOLD);
 		commander.setTypeface(tf);
 		bFormule.setTypeface(tf);
 		bCarte.setTypeface(tf);
 		displayCart();
-		
-		Button commande = (Button) findViewById(R.id.button_commande);
-		commande.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				validerCommande();
-			}
-		});
-
 	}
 
 	@Override
@@ -69,17 +62,18 @@ public class CheckCart extends Activity {
 		for (final Formule f : Globals.cart.getFormules()) {
 			LinearLayout formuleEtBouton = new LinearLayout(this);
 			formuleEtBouton.setOrientation(LinearLayout.HORIZONTAL);
-			formuleEtBouton.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
+			formuleEtBouton.setLayoutParams(new LinearLayout.LayoutParams(
+					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
 			formuleEtBouton.setPadding(0, 0, 0, 10);
 			itemList.addView(formuleEtBouton);
-			
+
 			TextView text = new TextView(this);
 			text.setTypeface(text.getTypeface(), Typeface.ITALIC);
 			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-			text.setText(f.getNom()
-					+ "\n   " + Globals.plats.get(f.getEntree()).getNom()
-					+ "\n   " + Globals.plats.get(f.getPlat()).getNom()
-					+ "\n   " + Globals.plats.get(f.getDessert()).getNom());
+			text.setText(f.getNom() + "\n   "
+					+ Globals.plats.get(f.getEntree()).getNom() + "\n   "
+					+ Globals.plats.get(f.getPlat()).getNom() + "\n   "
+					+ Globals.plats.get(f.getDessert()).getNom());
 			text.setHeight(200);
 			formuleEtBouton.addView(text);
 
@@ -87,14 +81,15 @@ public class CheckCart extends Activity {
 			b.setBackgroundColor(Color.TRANSPARENT);
 			b.setText("X");
 			b.setGravity(Gravity.RIGHT);
-			b.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
-			
+			b.setLayoutParams(new LinearLayout.LayoutParams(
+					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
+
 			b.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					rmFormule(f);
 				}
 			});
-			
+
 			formuleEtBouton.addView(b);
 			itemList.addView(separator());
 		}
@@ -102,28 +97,30 @@ public class CheckCart extends Activity {
 		for (final int id : Globals.cart.getPlats()) {
 			LinearLayout formuleEtBouton = new LinearLayout(this);
 			formuleEtBouton.setOrientation(LinearLayout.HORIZONTAL);
-			formuleEtBouton.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
+			formuleEtBouton.setLayoutParams(new LinearLayout.LayoutParams(
+					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
 			formuleEtBouton.setPadding(0, 0, 0, 10);
 			itemList.addView(formuleEtBouton);
-			
+
 			TextView text = new TextView(this);
 			text.setText(Globals.plats.get(id).getNom());
 			text.setTypeface(text.getTypeface(), Typeface.ITALIC);
 			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 			formuleEtBouton.addView(text);
-			
+
 			Button b = new Button(this);
 			b.setBackgroundColor(Color.TRANSPARENT);
 			b.setText("X");
 			b.setGravity(Gravity.RIGHT);
-			b.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
+			b.setLayoutParams(new LinearLayout.LayoutParams(
+					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
 
 			b.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					rmPlat(id);
 				}
 			});
-			
+
 			formuleEtBouton.addView(b);
 			itemList.addView(separator());
 		}
@@ -138,7 +135,7 @@ public class CheckCart extends Activity {
 				ViewGroup.LayoutParams.MATCH_PARENT, 2));
 		return separator;
 	}
-	
+
 	private void rmFormule(Formule f) {
 		Globals.cart.rm(f);
 		displayCart();
@@ -148,9 +145,21 @@ public class CheckCart extends Activity {
 		Globals.cart.rm(idPlat);
 		displayCart();
 	}
-	
-	private void validerCommande() {
+
+	public void validerCommande(View v) {
 		Intent intent = new Intent(this, CommandeValidee.class);
 		startActivity(intent);
+	}
+
+	public void retourFormule(View v) {
+		Intent intent = new Intent(this, ComposeMenu.class);
+		startActivity(intent);
+		finish();
+	}
+
+	public void retourCarte(View v) {
+		Intent intent = new Intent(this, CarteMenu.class);
+		startActivity(intent);
+		finish();
 	}
 }
