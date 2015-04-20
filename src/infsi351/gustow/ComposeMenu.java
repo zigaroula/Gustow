@@ -189,7 +189,7 @@ public class ComposeMenu extends Activity {
 		
 		}
 
-		int idFrame = getResources().getIdentifier("frame" + (color + 1),
+		int idFrame = getResources().getIdentifier("frame" + (color),
 				"drawable", getApplicationContext().getPackageName());
 
 		View mask = new View(this);
