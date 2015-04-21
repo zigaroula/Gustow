@@ -23,32 +23,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="infsi351.gustow.MainActivitycarte2"
-            android:label="@string/title_activity_main_activitycarte2" >
-        </activity>
-        <activity
-            android:name="infsi351.gustow.MainActivitycarte3"
-            android:label="@string/title_activity_main_activitycarte3" >
-        </activity>
-        <activity
-            android:name="infsi351.gustow.MainActivitycarte4"
-            android:label="@string/title_activity_main_activitycarte4" >
-        </activity>
-        <activity
             android:name="infsi351.gustow.CarteMenu"
             android:label="@string/title_activity_carte_menu" >
-        </activity>
-        <activity
-            android:name="infsi351.gustow.CarteEntree"
-            android:label="@string/title_activity_carte_entree" >
-        </activity>
-        <activity
-            android:name="infsi351.gustow.CartePlat"
-            android:label="@string/title_activity_carte_plat" >
-        </activity>
-        <activity
-            android:name="infsi351.gustow.CarteDessert"
-            android:label="@string/title_activity_carte_dessert" >
         </activity>
         <activity
             android:name="infsi351.gustow.Home"

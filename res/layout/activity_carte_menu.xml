@@ -28,8 +28,7 @@
                 android:id="@+id/titre_carte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Large Text" />
+                android:gravity="center" />
 
             <LinearLayout
                 android:id="@+id/produits_carte"

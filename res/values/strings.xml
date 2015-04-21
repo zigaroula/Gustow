@@ -3,9 +3,6 @@
 
     <!-- App -->
     <string name="app_name">Gustow</string>
-    <string name="carte">La Carte</string>
-    <string name="action_settings">Settings</string>
-    <string name="menu_settings">Settings</string>
 
     <!-- Main -->
     <string name="title_activity_main">MainActivity</string>
@@ -16,55 +13,21 @@
     <string name="button_carte">À la carte</string>
 
     <!-- ComposeMenu -->
-    <string name="title_activity_compose_menu">composeMenu</string>
+    <string name="title_activity_compose_menu">Les formules</string>
     <string name="button_confirm_formule">Confirmer et voir la commande</string>
 
     <!-- CheckCart -->
-    <string name="title_activity_check_cart">CheckCart</string>
+    <string name="title_activity_check_cart">Panier</string>
     <string name="title_cart">Mon panier</string>
     <string name="button_cart_formule">Ajouter une formule</string>
     <string name="button_cart_carte">Ajouter depuis la carte</string>
     <string name="button_commande">Je commande !</string>
+    
+    <!-- CommandeValidee -->
+    <string name="title_activity_commande_validee">Commande Validée</string>
 
-    <!-- Carte -->
-
-    <string name="title_activity_main_activitycarte2">MainActivitycarte2</string>
-    <string name="title_activity_main_activitycarte3">MainActivitycarte3</string>
-    <string name="title_activity_main_activitycarte4">MainActivitycarte4</string>
-    <string name="title_activity_carte_menu">CarteMenu</string>
-    <string name="title_activity_carte_entree">CarteEntree</string>
-    <string name="title_activity_carte_plat">CartePlat</string>
-    <string name="title_activity_carte_dessert">CarteDessert</string>
-    <string name="carte_entree">Les </string>
-    <string name="carte_plat">Les Plats</string>
-    <string name="carte_dessert">Les Desserts</string>
-    <string name="edit_message">Enter a message</string>
-    <string name="choose_menu">Choisissez votre menu</string>
-    <string name="button_menu">Composer votre menu</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="carte_entree1">Entrée 1</string>
-    <string name="carte_entree2">Entrée 2</string>
-    <string name="carte_entree3">Entrée 3</string>
-    <string name="carte_entree4">Entrée 4</string>
-    <string name="carte_entree5">Entrée 5</string>
-    <string name="carte_viande1">Viande 1</string>
-    <string name="carte_viande2">Viande 2</string>
-    <string name="carte_viande3">Viande 3</string>
-    <string name="carte_viande4">Viande 4</string>
-    <string name="carte_salade1">Salade 1</string>
-    <string name="carte_salade2">Salade 2</string>
-    <string name="carte_salade3">Salade 3</string>
-    <string name="carte_salade4">Salade 4</string>
-    <string name="carte_poisson1">Poisson 1</string>
-    <string name="carte_poisson2">Poisson 2</string>
-    <string name="carte_poisson3">Poisson 3</string>
-    <string name="carte_poisson4">Poisson 4</string>
-    <string name="carte_dessert1">Dessert 1</string>
-    <string name="carte_dessert2">Dessert 2</string>
-    <string name="carte_dessert3">Dessert 3</string>
-    <string name="carte_dessert4">Dessert 4</string>
-    <string name="carte_dessert5">Dessert 5</string>
-    <string name="title_activity_commande_validee">CommandeValidee</string>
+    <!-- CarteMenu -->
+    <string name="title_activity_carte_menu">À la carte</string>
     <string name="commande_validee">Commande Validée !</string>
     <string name="button_carte_view_cart">Voir mon panier</string>
 
