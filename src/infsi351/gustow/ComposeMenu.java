@@ -20,6 +20,8 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -209,14 +211,24 @@ public class ComposeMenu extends Activity {
 		buildingFormule.setPlatOfType(typePlat, idPlat);
 	}
 
-	public void confirm(View view) {
+	public void confirm(View v) {
 		Formule f = new Formule();
 		f.copyFormule(buildingFormule);
 		Globals.cart.add(f);
 
-		Intent intent = new Intent(this, CheckCart.class);
-		startActivity(intent);
-		finish();
+		Animation anim = AnimationUtils.loadAnimation(getApplicationContext(),
+				R.anim.feedback);
+		anim.setDuration(200);
+		v.startAnimation(anim);
+		v.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				Intent intent = new Intent(getApplicationContext(), CheckCart.class);
+				startActivity(intent);
+				finish();
+			}
+		}, 200);
+
 	}
 
 	public Button buttonPlat(Plat p) {
