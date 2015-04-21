@@ -9,18 +9,18 @@
 
     <!-- Home -->
     <string name="title_activity_home">Home</string>
-    <string name="button_formules">Los menus</string>
+    <string name="button_formules">Los menús</string>
     <string name="button_carte">A la carta</string>
 
     <!-- ComposeMenu -->
-    <string name="title_activity_compose_menu">Los Menus</string>
-    <string name="button_confirm_formule">Confirmar y ver el carrito</string>
+    <string name="title_activity_compose_menu">Los Menús</string>
+    <string name="button_confirm_formule">Confirmar y ver al carro</string>
 
     <!-- CheckCart -->
-    <string name="title_activity_check_cart">Carrito</string>
-    <string name="title_cart">El carrito</string>
-    <string name="button_cart_formule">Agregar un menu</string>
-    <string name="button_cart_carte">Agregar de la carta</string>
+    <string name="title_activity_check_cart">Carro</string>
+    <string name="title_cart">El carro</string>
+    <string name="button_cart_formule">Aumentar un menu</string>
+    <string name="button_cart_carte">Aumentar desde de la carta</string>
     <string name="button_commande">Pedir</string>
     
     <!-- CommandeValidee -->
@@ -29,6 +29,6 @@
     <!-- CarteMenu -->
     <string name="title_activity_carte_menu">A la carta</string>
     <string name="commande_validee">Pedido confirmado !</string>
-    <string name="button_carte_view_cart">Ver el carrito !</string>
+    <string name="button_carte_view_cart">Ver al carro !</string>
 
 </resources>

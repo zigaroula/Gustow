@@ -127,13 +127,19 @@ public class CarteMenu extends Activity {
 	       v.startAnimation(animation);
 	}
 
-	public void confirm(View view) {
-		Formule f = new Formule();
-		f.copyFormule(buildingFormule);
-		Globals.cart.add(f);
-
-		Intent intent = new Intent(this, CheckCart.class);
-		startActivity(intent);
+	public void confirm(View v) {
+		Animation anim = AnimationUtils.loadAnimation(getApplicationContext(),
+				R.anim.feedback);
+		anim.setDuration(200);
+		v.startAnimation(anim);
+		v.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				Intent intent = new Intent(getApplicationContext(), CheckCart.class);
+				startActivity(intent);
+				finish();
+			}
+		}, 200);
 	}
 
 	public Button buttonPlat(Plat p) {
