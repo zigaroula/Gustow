@@ -9,26 +9,26 @@
 
     <!-- Home -->
     <string name="title_activity_home">Home</string>
-    <string name="button_formules">Les formules</string>
-    <string name="button_carte">À la carte</string>
+    <string name="button_formules">Los menus</string>
+    <string name="button_carte">A la carta</string>
 
     <!-- ComposeMenu -->
-    <string name="title_activity_compose_menu">Les formules</string>
-    <string name="button_confirm_formule">Confirmer et voir la commande</string>
+    <string name="title_activity_compose_menu">Los Menus</string>
+    <string name="button_confirm_formule">Confirmar y ver el carrito</string>
 
     <!-- CheckCart -->
-    <string name="title_activity_check_cart">Panier</string>
-    <string name="title_cart">Mon panier</string>
-    <string name="button_cart_formule">Ajouter une formule</string>
-    <string name="button_cart_carte">Ajouter depuis la carte</string>
-    <string name="button_commande">Je commande !</string>
+    <string name="title_activity_check_cart">Carrito</string>
+    <string name="title_cart">El carrito</string>
+    <string name="button_cart_formule">Agregar un menu</string>
+    <string name="button_cart_carte">Agregar de la carta</string>
+    <string name="button_commande">Pedir</string>
     
     <!-- CommandeValidee -->
-    <string name="title_activity_commande_validee">Commande Validée</string>
+    <string name="title_activity_commande_validee">Pedido confirmado</string>
 
     <!-- CarteMenu -->
-    <string name="title_activity_carte_menu">À la carte</string>
-    <string name="commande_validee">Commande Validée !</string>
-    <string name="button_carte_view_cart">Voir mon panier</string>
+    <string name="title_activity_carte_menu">A la carta</string>
+    <string name="commande_validee">Pedido confirmado !</string>
+    <string name="button_carte_view_cart">Ver el carrito !</string>
 
 </resources>

@@ -9,26 +9,26 @@
 
     <!-- Home -->
     <string name="title_activity_home">Home</string>
-    <string name="button_formules">Les formules</string>
+    <string name="button_formules">Set Menus</string>
     <string name="button_carte">À la carte</string>
 
     <!-- ComposeMenu -->
-    <string name="title_activity_compose_menu">Les formules</string>
-    <string name="button_confirm_formule">Confirmer et voir la commande</string>
+    <string name="title_activity_compose_menu">Set menus</string>
+    <string name="button_confirm_formule">Confirm and check the cart</string>
 
     <!-- CheckCart -->
-    <string name="title_activity_check_cart">Panier</string>
-    <string name="title_cart">Mon panier</string>
-    <string name="button_cart_formule">Ajouter une formule</string>
-    <string name="button_cart_carte">Ajouter depuis la carte</string>
-    <string name="button_commande">Je commande !</string>
+    <string name="title_activity_check_cart">Cart</string>
+    <string name="title_cart">My cart</string>
+    <string name="button_cart_formule">Add a set menu</string>
+    <string name="button_cart_carte">Add from menu</string>
+    <string name="button_commande">I want to order !</string>
     
     <!-- CommandeValidee -->
-    <string name="title_activity_commande_validee">Commande Validée</string>
+    <string name="title_activity_commande_validee">Order confirmed</string>
 
     <!-- CarteMenu -->
     <string name="title_activity_carte_menu">À la carte</string>
-    <string name="commande_validee">Commande Validée !</string>
-    <string name="button_carte_view_cart">Voir mon panier</string>
+    <string name="commande_validee">Order confirmed!</string>
+    <string name="button_carte_view_cart">Check the cart</string>
 
 </resources>
