@@ -16,6 +16,7 @@ public class Globals {
 	public static void init(Context appContext) {
 		plats=new GestionnairePlat(appContext);
 		cart=new Cart();
+		
 		couleurs = new ArrayList<Integer>();
 		couleurs.add(Color.argb(255, 227, 238, 206));
 		couleurs.add(Color.argb(255, 250, 213, 203));

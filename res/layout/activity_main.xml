@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="bottom"
-    android:gravity="bottom"
-    android:background="@drawable/accueil" >
+    android:background="@drawable/accueil2"
+    android:gravity="bottom" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,42 +16,42 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:layout_weight="5"
             android:orientation="horizontal" />
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:layout_weight="2.73"
             android:orientation="horizontal" >
 
             <Button
+                android:id="@+id/button_en"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3.57"
+                android:background="@drawable/en"
+                android:onClick="selectLanguage" />
+
+            <Button
+                android:id="@+id/button_fr"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.78"
+                android:background="@drawable/fr"
+                android:onClick="selectLanguage" />
+
+            <Button
+                android:id="@+id/button_es"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:onClick="selectLanguage"
-                android:background="@android:color/transparent"
-                android:id="@+id/button_en" />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:onClick="selectLanguage"
-                android:background="@android:color/transparent"
-                android:id="@+id/button_fr" />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:onClick="selectLanguage"
-                android:background="@android:color/transparent"
-                android:id="@+id/button_es" />
+                android:background="@drawable/es"
+                android:onClick="selectLanguage" />
         </LinearLayout>
     </LinearLayout>
 

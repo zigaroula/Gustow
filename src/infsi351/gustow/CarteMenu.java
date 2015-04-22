@@ -123,7 +123,7 @@ public class CarteMenu extends Activity {
 
 	private void addToCart(int idPlat, View v) {
 		Globals.cart.add(idPlat);
-		Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.feedback);
+		Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.ondulate);
 	       v.startAnimation(animation);
 	}
 

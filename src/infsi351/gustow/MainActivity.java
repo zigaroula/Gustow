@@ -1,17 +1,20 @@
 package infsi351.gustow;
 
+import infsi351.gustow.data.Globals;
+
 import java.util.Locale;
 
-import infsi351.gustow.data.Globals;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Typeface;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 
@@ -26,6 +29,16 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		Globals.init(getApplicationContext());		
+		
+		Button bEn=(Button) findViewById(R.id.button_en);
+		Button bFr=(Button) findViewById(R.id.button_fr);
+		Button bEs=(Button) findViewById(R.id.button_es);
+
+		Animation ani = AnimationUtils.loadAnimation(this, R.anim.fadein);
+		ani.setRepeatCount(Animation.INFINITE);
+		bEn.setAnimation(ani);
+		bFr.setAnimation(ani);
+		bEs.setAnimation(ani);
 	}
 
 	@Override
