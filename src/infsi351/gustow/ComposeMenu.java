@@ -141,7 +141,7 @@ public class ComposeMenu extends Activity {
 			FrameLayout frame = PlatFrames.get(type);
 			frame.removeAllViews();
 
-			setFrame(1, type, couleur, true);
+			setFrame(1, type, couleur, true, false);
 
 			// pour chaque plat, on cree le bouton
 			for (int i : f.getPlatsOfType(type)) {
@@ -153,7 +153,7 @@ public class ComposeMenu extends Activity {
 
 				b.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View v) {
-						setFrame(id, t, couleur, false);
+						setFrame(id, t, couleur, false, true);
 						b.setTypeface(b.getTypeface(), Typeface.BOLD_ITALIC);
 					}
 				});
@@ -172,13 +172,15 @@ public class ComposeMenu extends Activity {
 	}
 
 	private void setFrame(final int idPlat, final TypePlat typePlat,
-			final int color, Boolean init) {
+			final int color, Boolean init, Boolean reset) {
 		LinearLayout layout = PlatLists.get(typePlat);
-		int childCount = layout.getChildCount();
-		for (int i = 0; i < childCount; i++) {
-			Button v = (Button) layout.getChildAt(i);
-			v.setTypeface(v.getTypeface(), Typeface.ITALIC);
-			// ((Button) v).setBackgroundColor(Globals.couleurs.get(4));
+		if (reset) {
+			int childCount = layout.getChildCount();
+			for (int i = 0; i < childCount; i++) {
+				Button v = (Button) layout.getChildAt(i);
+				v.setTypeface(v.getTypeface(), Typeface.ITALIC);
+				// ((Button) v).setBackgroundColor(Globals.couleurs.get(4));
+			}
 		}
 		// selectionne la frame à modifier
 		FrameLayout frame = PlatFrames.get(typePlat);
@@ -301,7 +303,7 @@ public class ComposeMenu extends Activity {
 
 		mask.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				setFrame(idPlat, typePlat, color, false);
+				setFrame(idPlat, typePlat, color, false, false);
 			}
 		});
 
