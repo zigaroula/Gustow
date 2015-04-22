@@ -4,6 +4,7 @@ import infsi351.gustow.data.Formule;
 import infsi351.gustow.data.Globals;
 import infsi351.gustow.data.Plat;
 import infsi351.gustow.data.TypePlat;
+import infsi351.gustow.design.ResizeAnimation;
 
 import java.util.EnumSet;
 import java.util.Map;
@@ -77,8 +78,6 @@ public class CarteMenu extends Activity {
 	public void setTypePlat(TypePlat type, final int couleur) {
 		LinearLayout carteTypePlat = (LinearLayout) findViewById(R.id.carte_typeplat);
 		LinearLayout menuTypePlat = (LinearLayout) findViewById(R.id.menu_typeplat);
-		menuTypePlat.setLayoutParams(new LinearLayout.LayoutParams(100,
-				ViewGroup.LayoutParams.MATCH_PARENT));
 		carteTypePlat.setBackgroundColor(Globals.couleurs.get(couleur));
 
 		LinearLayout produitsCarte = (LinearLayout) findViewById(R.id.produits_carte);
@@ -119,12 +118,21 @@ public class CarteMenu extends Activity {
 				"fonts/SnellRoundhand.ttc");
 		buttonViewCart.setTypeface(buttonTF);
 		buttonViewCart.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
+
+		/*
+		 * menuTypePlat.setLayoutParams(new LinearLayout.LayoutParams(100,
+		 * ViewGroup.LayoutParams.MATCH_PARENT));
+		 */
+		ResizeAnimation resizeAnimation = new ResizeAnimation(menuTypePlat, 100);
+		resizeAnimation.setDuration(300);
+		menuTypePlat.startAnimation(resizeAnimation);
 	}
 
 	private void addToCart(int idPlat, View v) {
 		Globals.cart.add(idPlat);
-		Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.ondulate);
-	       v.startAnimation(animation);
+		Animation animation = AnimationUtils.loadAnimation(
+				getApplicationContext(), R.anim.ondulate);
+		v.startAnimation(animation);
 	}
 
 	public void confirm(View v) {
@@ -135,7 +143,8 @@ public class CarteMenu extends Activity {
 		v.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				Intent intent = new Intent(getApplicationContext(), CheckCart.class);
+				Intent intent = new Intent(getApplicationContext(),
+						CheckCart.class);
 				startActivity(intent);
 				finish();
 			}

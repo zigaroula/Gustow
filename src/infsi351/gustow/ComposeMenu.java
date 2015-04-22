@@ -4,6 +4,7 @@ import infsi351.gustow.data.Formule;
 import infsi351.gustow.data.Globals;
 import infsi351.gustow.data.Plat;
 import infsi351.gustow.data.TypePlat;
+import infsi351.gustow.design.ResizeAnimation;
 
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -18,15 +19,14 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -114,8 +114,6 @@ public class ComposeMenu extends Activity {
 		buildingFormule.copyFormule(f);
 
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
-		menuFormule.setLayoutParams(new LinearLayout.LayoutParams(100,
-				ViewGroup.LayoutParams.MATCH_PARENT));
 
 		int childcount = menuFormule.getChildCount();
 		for (int i = 0; i < childcount; i++) {
@@ -125,7 +123,7 @@ public class ComposeMenu extends Activity {
 
 		LinearLayout menuPlat = (LinearLayout) findViewById(R.id.menu_plat);
 		menuPlat.setBackgroundColor(Globals.couleurs.get(couleur));
-		
+
 		TextView blankSpace = (TextView) findViewById(R.id.blank);
 		blankSpace.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
 		TextView titreMenu = (TextView) findViewById(R.id.titre_menu);
@@ -142,7 +140,7 @@ public class ComposeMenu extends Activity {
 			layout.removeAllViews();
 			FrameLayout frame = PlatFrames.get(type);
 			frame.removeAllViews();
-			
+
 			setFrame(1, type, couleur, true);
 
 			// pour chaque plat, on cree le bouton
@@ -163,9 +161,18 @@ public class ComposeMenu extends Activity {
 				layout.addView(b);
 			}
 		}
+
+		/*
+		 * menuFormule.setLayoutParams(new LinearLayout.LayoutParams(100,
+		 * ViewGroup.LayoutParams.MATCH_PARENT));
+		 */
+		ResizeAnimation resizeAnimation = new ResizeAnimation(menuFormule, 100);
+		resizeAnimation.setDuration(300);
+		menuFormule.startAnimation(resizeAnimation);
 	}
 
-	private void setFrame(final int idPlat, final TypePlat typePlat, final int color, Boolean init) {
+	private void setFrame(final int idPlat, final TypePlat typePlat,
+			final int color, Boolean init) {
 		LinearLayout layout = PlatLists.get(typePlat);
 		int childCount = layout.getChildCount();
 		for (int i = 0; i < childCount; i++) {
@@ -188,19 +195,19 @@ public class ComposeMenu extends Activity {
 			photo.setBackgroundResource(id);
 
 			frame.addView(photo);
-		
+
 		}
 
-		int idFrame = getResources().getIdentifier("frame" + color,
-				"drawable", getApplicationContext().getPackageName());
+		int idFrame = getResources().getIdentifier("frame" + color, "drawable",
+				getApplicationContext().getPackageName());
 
 		View mask = new View(this);
 		mask.setBackgroundResource(idFrame);
 		mask.setLayoutParams(new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		frame.addView(mask);
-		
-		if(!init) {
+
+		if (!init) {
 			mask.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					frameDescription(idPlat, typePlat, color);
@@ -223,7 +230,8 @@ public class ComposeMenu extends Activity {
 		v.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				Intent intent = new Intent(getApplicationContext(), CheckCart.class);
+				Intent intent = new Intent(getApplicationContext(),
+						CheckCart.class);
 				startActivity(intent);
 				finish();
 			}
@@ -236,7 +244,7 @@ public class ComposeMenu extends Activity {
 		Typeface tf = Typeface.createFromAsset(getAssets(),
 				"fonts/Bodoni 72.ttc");
 		b.setText(p.getNom());
-		b.setTypeface(tf,Typeface.ITALIC);
+		b.setTypeface(tf, Typeface.ITALIC);
 		b.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
 		b.setBackgroundColor(Color.TRANSPARENT);
 		return b;
@@ -258,7 +266,7 @@ public class ComposeMenu extends Activity {
 		couleurCourante = (couleurCourante + 1) % Globals.couleurs.size();
 		return b;
 	}
-	
+
 	public void frameDescription(int idPlat, TypePlat typePlat, int color) {
 		FrameLayout frame = PlatFrames.get(typePlat);
 		Plat p = Globals.plats.get(idPlat);
@@ -266,22 +274,24 @@ public class ComposeMenu extends Activity {
 		// remplit la frame
 		frame.removeAllViews();
 
-
 		View photo = new View(this);
 		String path = p.getPathImage();
 		int id = getResources().getIdentifier(path, "drawable",
 				getApplicationContext().getPackageName());
 		photo.setBackgroundResource(id);
 
+		AlphaAnimation ani=new AlphaAnimation(0.2f, 1.0f); 
+		ani.setDuration(2000);
+		photo.setAnimation(ani);
 		frame.addView(photo);
-		
-		TextView desc=new TextView(this);
+
+
+		TextView desc = new TextView(this);
 		desc.setText(p.getDescription());
 		desc.setBackgroundColor(Color.argb(150, 0, 0, 0));
 		desc.setTextColor(Color.WHITE);
 		desc.setGravity(Gravity.CENTER);
 		frame.addView(desc);
-
 
 		int idFrame = getResources().getIdentifier("frame" + (color),
 				"drawable", getApplicationContext().getPackageName());
