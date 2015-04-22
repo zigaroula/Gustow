@@ -267,7 +267,8 @@ public class ComposeMenu extends Activity {
 		return b;
 	}
 
-	public void frameDescription(int idPlat, TypePlat typePlat, int color) {
+	public void frameDescription(final int idPlat, final TypePlat typePlat,
+			final int color) {
 		FrameLayout frame = PlatFrames.get(typePlat);
 		Plat p = Globals.plats.get(idPlat);
 
@@ -280,11 +281,7 @@ public class ComposeMenu extends Activity {
 				getApplicationContext().getPackageName());
 		photo.setBackgroundResource(id);
 
-		AlphaAnimation ani=new AlphaAnimation(0.2f, 1.0f); 
-		ani.setDuration(2000);
-		photo.setAnimation(ani);
 		frame.addView(photo);
-
 
 		TextView desc = new TextView(this);
 		desc.setText(p.getDescription());
@@ -301,5 +298,12 @@ public class ComposeMenu extends Activity {
 		mask.setLayoutParams(new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		frame.addView(mask);
+
+		mask.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				setFrame(idPlat, typePlat, color, false);
+			}
+		});
+
 	}
 }
