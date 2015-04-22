@@ -9,6 +9,7 @@ public class Formule implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String nom;
+	private int prix;
 	private List<Integer> entrees=new ArrayList<Integer>();
 	private List<Integer> plats=new ArrayList<Integer>();
 	private List<Integer> desserts=new ArrayList<Integer>();
@@ -21,9 +22,10 @@ public class Formule implements Serializable{
 
 	}
 	
-	public Formule(String name, List<Integer> entrees, List<Integer> plats,
+	public Formule(String name, int prix, List<Integer> entrees, List<Integer> plats,
 			List<Integer> desserts) {
 		super();
+		this.prix=prix;
 		this.nom=name;
 		this.entrees = entrees;
 		this.plats = plats;
@@ -35,6 +37,14 @@ public class Formule implements Serializable{
 	
 	
 
+	public int getPrix() {
+		return prix;
+	}
+
+	public void setPrix(int prix) {
+		this.prix = prix;
+	}
+
 	public void copyFormule(Formule f) {
 		this.id=f.id;
 		this.nom=f.nom;
@@ -45,6 +55,8 @@ public class Formule implements Serializable{
 		this.entree=f.entree;
 		this.plat=f.plat;
 		this.dessert=f.dessert;
+		
+		this.prix=f.prix;
 	}
 	
 	public int getId() {

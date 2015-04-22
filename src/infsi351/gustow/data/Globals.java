@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
 
 // it's much easier to declare the "global" classes here rather than pass them through the new intents
 

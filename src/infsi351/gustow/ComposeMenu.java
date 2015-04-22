@@ -127,7 +127,7 @@ public class ComposeMenu extends Activity {
 		TextView blankSpace = (TextView) findViewById(R.id.blank);
 		blankSpace.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
 		TextView titreMenu = (TextView) findViewById(R.id.titre_menu);
-		titreMenu.setText(f.getNom());
+		titreMenu.setText(f.getNom()+" ~ "+f.getPrix()+"€");
 		Typeface tf = Typeface.createFromAsset(getAssets(),
 				"fonts/SnellRoundhand.ttc");
 		titreMenu.setTypeface(tf);
@@ -254,7 +254,7 @@ public class ComposeMenu extends Activity {
 
 	public Button buttonFormule(Formule f) {
 		Button b = new Button(this);
-		b.setText(f.getNom());
+		b.setText(f.getNom()+" ~ "+f.getPrix()+"€");
 		Typeface tf = Typeface.createFromAsset(getAssets(),
 				"fonts/SnellRoundhand.ttc");
 		b.setTypeface(tf);
@@ -290,6 +290,9 @@ public class ComposeMenu extends Activity {
 		desc.setBackgroundColor(Color.argb(150, 0, 0, 0));
 		desc.setTextColor(Color.WHITE);
 		desc.setGravity(Gravity.CENTER);
+		desc.setLayoutParams(new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
+		desc.setPadding(50, 50, 50, 50);
 		frame.addView(desc);
 
 		int idFrame = getResources().getIdentifier("frame" + (color),

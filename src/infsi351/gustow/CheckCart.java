@@ -70,7 +70,7 @@ public class CheckCart extends Activity {
 			TextView text = new TextView(this);
 			text.setTypeface(text.getTypeface(), Typeface.ITALIC);
 			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-			text.setText(f.getNom() + "\n   "
+			text.setText(f.getNom() + " ~ " + f.getPrix() + "€\n   "
 					+ Globals.plats.get(f.getEntree()).getNom() + "\n   "
 					+ Globals.plats.get(f.getPlat()).getNom() + "\n   "
 					+ Globals.plats.get(f.getDessert()).getNom());

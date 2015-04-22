@@ -187,7 +187,8 @@ public class GestionnairePlat {
 		
 		//SIMULATION DE LA REQUETE POUR LES PLATS
 		Formule f1=new Formule();
-		f1.setName("Le Classique ~ 35€");
+		f1.setName("Le Classique ");
+		f1.setPrix(35);
 		f1.addEntree(1);
 		f1.addEntree(2);
 		f1.addEntree(4);
@@ -200,7 +201,8 @@ public class GestionnairePlat {
 		f1.setId(0);
 		
 		Formule f2=new Formule();
-		f2.setName("Le Gourmand ~ 50€");
+		f2.setName("Le Gourmand");
+		f2.setPrix(50);
 		f2.addEntree(3);
 		f2.addEntree(4);
 		f2.addEntree(5);
@@ -213,7 +215,8 @@ public class GestionnairePlat {
 		f2.setId(1);
 		
 		Formule f3=new Formule();
-		f3.setName("Le Léger ~ 30€");
+		f3.setName("Le Léger ");
+		f3.setPrix(30);
 		f3.addEntree(0);
 		f3.addEntree(2);
 		f3.addEntree(4);
@@ -225,7 +228,8 @@ public class GestionnairePlat {
 		f3.setId(2);
 		
 		Formule f4=new Formule();
-		f4.setName("L 'Atlantide ~ 45€");
+		f4.setName("L 'Atlantide");
+		f4.setPrix(45);
 		f4.addEntree(0);
 		f4.addEntree(2);
 		f4.addPlat(19);
