@@ -28,11 +28,13 @@ public class MainActivity extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_main);
 
-		Globals.init(getApplicationContext());		
-		
-		Button bEn=(Button) findViewById(R.id.button_en);
-		Button bFr=(Button) findViewById(R.id.button_fr);
-		Button bEs=(Button) findViewById(R.id.button_es);
+		// let's intialize the data classes
+		Globals.init(getApplicationContext());
+
+		// all the language buttons get their animation
+		Button bEn = (Button) findViewById(R.id.button_en);
+		Button bFr = (Button) findViewById(R.id.button_fr);
+		Button bEs = (Button) findViewById(R.id.button_es);
 
 		Animation ani = AnimationUtils.loadAnimation(this, R.anim.fadein);
 		ani.setRepeatCount(Animation.INFINITE);
@@ -47,7 +49,8 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-
+	
+	//callback for the buttons: it sets the right locale then moves to the next activity
 	public void selectLanguage(View view) {
 		Intent intent = new Intent(this, Home.class);
 		String language = "";

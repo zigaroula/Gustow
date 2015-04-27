@@ -2,11 +2,8 @@ package infsi351.gustow.data;
 
 import java.io.Serializable;
 
-
-
-
 public class Plat implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String nom;
@@ -14,12 +11,13 @@ public class Plat implements Serializable {
 	private TypePlat type;
 	private String pathImage;
 	private String description;
-	
+
 	public Plat() {
-		
+
 	}
-	
-	public Plat(int id, String nom, TypePlat type, double prix, String pathImage, String description) {
+
+	public Plat(int id, String nom, TypePlat type, double prix,
+			String pathImage, String description) {
 		super();
 		this.type = type;
 		this.id = id;
@@ -28,11 +26,7 @@ public class Plat implements Serializable {
 		this.pathImage = pathImage;
 		this.description = description;
 	}
-	
-	
-	
-	
-	
+
 	public int getId() {
 		return id;
 	}
@@ -85,10 +79,8 @@ public class Plat implements Serializable {
 		return serialVersionUID;
 	}
 
-	public String toString(){
+	public String toString() {
 		return nom + " à " + prix + " euro ";
 	}
-	
-	
-	
+
 }

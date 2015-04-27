@@ -1,10 +1,7 @@
 package infsi351.gustow;
 
-import java.util.Locale;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +11,6 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 public class Home extends Activity {
 
@@ -28,11 +24,11 @@ public class Home extends Activity {
 		String language = intent.getStringExtra(MainActivity.LANGUAGE);
 		System.out.println(language);
 		setContentView(R.layout.activity_home);
-		LinearLayout page2 = (LinearLayout) findViewById(R.id.page2);
 
+		// formule/carte buttons
 		Button bFormules = (Button) findViewById(R.id.button_formules);
 		Button bCarte = (Button) findViewById(R.id.button_carte);
-		// custom font
+
 		Typeface tf = Typeface.createFromAsset(getAssets(),
 				"fonts/SnellRoundhand.ttc");
 		bFormules.setTypeface(tf, Typeface.BOLD);
@@ -46,6 +42,7 @@ public class Home extends Activity {
 		return true;
 	}
 
+	// callback for formule : changes activity after an animation is done
 	public void selectMenu(View v) {
 
 		Animation anim = AnimationUtils.loadAnimation(getApplicationContext(),
@@ -63,6 +60,7 @@ public class Home extends Activity {
 
 	}
 
+	//callback for carte : changes activity after an animation is done
 	public void selectCarte(View v) {
 		Animation anim = AnimationUtils.loadAnimation(getApplicationContext(),
 				R.anim.feedback);

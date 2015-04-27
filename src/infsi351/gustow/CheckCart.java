@@ -2,8 +2,6 @@ package infsi351.gustow;
 
 import infsi351.gustow.data.Formule;
 import infsi351.gustow.data.Globals;
-import infsi351.gustow.data.Plat;
-import infsi351.gustow.data.TypePlat;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,7 +16,6 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -59,6 +56,8 @@ public class CheckCart extends Activity {
 		LinearLayout itemList = (LinearLayout) findViewById(R.id.item_list);
 		itemList.removeAllViews();
 		itemList.addView(separator());
+		
+		//displays all the selected Formule
 		for (final Formule f : Globals.cart.getFormules()) {
 			LinearLayout formuleEtBouton = new LinearLayout(this);
 			formuleEtBouton.setOrientation(LinearLayout.HORIZONTAL);
@@ -94,6 +93,7 @@ public class CheckCart extends Activity {
 			itemList.addView(separator());
 		}
 
+		//displays all the selected Plat
 		for (final int id : Globals.cart.getPlats()) {
 			LinearLayout formuleEtBouton = new LinearLayout(this);
 			formuleEtBouton.setOrientation(LinearLayout.HORIZONTAL);
@@ -128,6 +128,7 @@ public class CheckCart extends Activity {
 
 	}
 
+	//creates a small view to draw a line
 	private LinearLayout separator() {
 		// un peu sale...
 		LinearLayout separator = new LinearLayout(this);
@@ -137,27 +138,32 @@ public class CheckCart extends Activity {
 		return separator;
 	}
 
+	//removes f from the cart
 	private void rmFormule(Formule f) {
 		Globals.cart.rm(f);
 		displayCart();
 	}
 
+	//removes the corresponding Plat from the cart
 	private void rmPlat(int idPlat) {
 		Globals.cart.rm(idPlat);
 		displayCart();
 	}
 
+	//callback for a button at the bottom
 	public void validerCommande(View v) {
 		Intent intent = new Intent(this, CommandeValidee.class);
 		startActivity(intent);
 	}
 
+	//callback for a button at the bottom
 	public void retourFormule(View v) {
 		Intent intent = new Intent(this, ComposeMenu.class);
 		startActivity(intent);
 		finish();
 	}
 
+	//callback for a button at the bottom
 	public void retourCarte(View v) {
 		Intent intent = new Intent(this, CarteMenu.class);
 		startActivity(intent);

@@ -1,14 +1,9 @@
 package infsi351.gustow;
 
-import infsi351.gustow.data.Formule;
 import infsi351.gustow.data.Globals;
 import infsi351.gustow.data.Plat;
 import infsi351.gustow.data.TypePlat;
 import infsi351.gustow.design.ResizeAnimation;
-
-import java.util.EnumSet;
-import java.util.Map;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,7 +13,6 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
@@ -42,6 +36,7 @@ public class CarteMenu extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_carte_menu);
 
+		// for each type plat, display a button to select it
 		LinearLayout menuTypePlat = (LinearLayout) findViewById(R.id.menu_typeplat);
 		for (final TypePlat type : TypePlat.values()) {
 			final int couleurTypePlat = couleurCourante;
@@ -62,9 +57,11 @@ public class CarteMenu extends Activity {
 		return true;
 	}
 
+	// callback for the TypePlat buttons
 	public void setTypePlat(TypePlat type, final int couleur) {
 		setFrame(0, couleur, true);
 
+		// resize some of the views
 		LinearLayout carteTypePlat = (LinearLayout) findViewById(R.id.carte_typeplat);
 		LinearLayout menuTypePlat = (LinearLayout) findViewById(R.id.menu_typeplat);
 		carteTypePlat.setBackgroundColor(Globals.couleurs.get(couleur));
@@ -118,6 +115,7 @@ public class CarteMenu extends Activity {
 		menuTypePlat.startAnimation(resizeAnimation);
 	}
 
+	//adds the plat with id idPlat to the global cart
 	private void addToCart(int idPlat, View v) {
 		Globals.cart.add(idPlat);
 		Animation animation = AnimationUtils.loadAnimation(
@@ -125,6 +123,7 @@ public class CarteMenu extends Activity {
 		v.startAnimation(animation);
 	}
 
+	//callback for the confirm button (with an animation first)
 	public void confirm(View v) {
 		Animation anim = AnimationUtils.loadAnimation(getApplicationContext(),
 				R.anim.feedback);
@@ -141,6 +140,7 @@ public class CarteMenu extends Activity {
 		}, 200);
 	}
 
+	//generates a button for Plat p
 	public Button buttonPlat(Plat p) {
 		Button b = new Button(this);
 		Typeface tf = Typeface.createFromAsset(getAssets(),
@@ -152,16 +152,7 @@ public class CarteMenu extends Activity {
 		return b;
 	}
 
-	public Button buttonFormule(Formule f) {
-		Button b = new Button(this);
-		b.setText(f.getNom());
-		Typeface tf = Typeface.createFromAsset(getAssets(),
-				"fonts/SnellRoundhand.ttc");
-		b.setTypeface(tf);
-		b.setBackgroundColor(Color.TRANSPARENT);
-		return b;
-	}
-
+	//generates a button for TypePlat type
 	public Button buttonTypePlat(TypePlat type) {
 		Button b = new Button(this);
 		b.setText(type.toString());
@@ -178,12 +169,7 @@ public class CarteMenu extends Activity {
 		return b;
 	}
 
-	public void viewCart(View v) {
-		Intent intent = new Intent(this, CheckCart.class);
-		startActivity(intent);
-		finish();
-	}
-
+	//sets the frame at the bottom of the screen (title+picture+description of the selected Plat)
 	private void setFrame(final int idPlat, int color, Boolean init) {
 		TextView title = (TextView) findViewById(R.id.carte_desc_title);
 		TextView desc = (TextView) findViewById(R.id.carte_description);
@@ -195,7 +181,7 @@ public class CarteMenu extends Activity {
 
 		frame.removeAllViews();
 
-		if (!init) {
+		if (!init) { // when a Plat is selected, fills everything in the frame
 			View photo = new View(this);
 			String path = p.getPathImage();
 			int id = getResources().getIdentifier(path, "drawable",
@@ -224,8 +210,7 @@ public class CarteMenu extends Activity {
 			button.setTypeface(tf1);
 			button.setVisibility(LinearLayout.VISIBLE);
 
-
-		} else {
+		} else { //when no Plat is selected, everything is empty
 			title.setText("");
 			desc.setText("");
 			button.setVisibility(LinearLayout.GONE);
@@ -234,11 +219,29 @@ public class CarteMenu extends Activity {
 		int idFrame = getResources().getIdentifier("frame" + color, "drawable",
 				getApplicationContext().getPackageName());
 
+		//put a frame on top of the picture
 		View mask = new View(this);
 		mask.setBackgroundResource(idFrame);
 		mask.setLayoutParams(new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		frame.addView(mask);
 
+	}
+	
+	//callback for the confirm button
+	public void viewCart(View v) {
+		Animation anim = AnimationUtils.loadAnimation(getApplicationContext(),
+				R.anim.feedback);
+		anim.setDuration(200);
+		v.startAnimation(anim);
+		v.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				Intent intent = new Intent(getApplicationContext(),
+						CheckCart.class);
+				startActivity(intent);
+				finish();
+			}
+		}, 200);
 	}
 }

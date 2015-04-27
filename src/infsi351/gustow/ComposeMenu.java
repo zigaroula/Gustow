@@ -22,7 +22,6 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -65,6 +64,7 @@ public class ComposeMenu extends Activity {
 		// TextView titreMenu = (TextView) findViewById(R.id.titre_menu);
 		// titreMenu.setX((int) titreMenu.getX() - 50);
 
+		// for each formule, display a button
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 		for (final Formule f : Globals.plats.getFormules()) {
 			final int couleurFormule = couleurCourante;
@@ -82,6 +82,7 @@ public class ComposeMenu extends Activity {
 
 		buildingFormule = new Formule();
 
+		// set up the mappings for better management
 		PlatLists = new EnumMap<TypePlat, LinearLayout>(TypePlat.class);
 		PlatLists.put(TypePlat.Entree,
 				(LinearLayout) findViewById(R.id.menu_plat_entree));
@@ -106,7 +107,9 @@ public class ComposeMenu extends Activity {
 		return true;
 	}
 
+	// callback for the formule buttons : displays the lists of Plat
 	public void selectFormule(Formule f, final int couleur) {
+		// only reload everything if a different Formule is selected
 		if (currentFormule == f)
 			return;
 
@@ -115,25 +118,28 @@ public class ComposeMenu extends Activity {
 
 		LinearLayout menuFormule = (LinearLayout) findViewById(R.id.menu_formule);
 
+		// remove the titles of the Formule buttons
 		int childcount = menuFormule.getChildCount();
 		for (int i = 0; i < childcount; i++) {
 			View v = menuFormule.getChildAt(i);
 			((Button) v).setText("");
 		}
 
+		// some layout stuff (resize+color)
 		LinearLayout menuPlat = (LinearLayout) findViewById(R.id.menu_plat);
 		menuPlat.setBackgroundColor(Globals.couleurs.get(couleur));
 
 		TextView blankSpace = (TextView) findViewById(R.id.blank);
 		blankSpace.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
 		TextView titreMenu = (TextView) findViewById(R.id.titre_menu);
-		titreMenu.setText(f.getNom()+" ~ "+f.getPrix()+"€");
+		titreMenu.setText(f.getNom() + " ~ " + f.getPrix() + "€");
 		Typeface tf = Typeface.createFromAsset(getAssets(),
 				"fonts/SnellRoundhand.ttc");
 		titreMenu.setTypeface(tf);
 		titreMenu.setTypeface(titreMenu.getTypeface(), Typeface.BOLD);
 		titreMenu.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
 
+		// for each category of Plat, display the buttons
 		for (TypePlat type : rubriques) {
 
 			LinearLayout layout = PlatLists.get(type);
@@ -171,6 +177,7 @@ public class ComposeMenu extends Activity {
 		menuFormule.startAnimation(resizeAnimation);
 	}
 
+	//set the corresponding frame to display the right picture+description
 	private void setFrame(final int idPlat, final TypePlat typePlat,
 			final int color, Boolean init, Boolean reset) {
 		LinearLayout layout = PlatLists.get(typePlat);
@@ -189,17 +196,17 @@ public class ComposeMenu extends Activity {
 		// remplit la frame
 		frame.removeAllViews();
 
+		//picture is only displayed when a Plat is selected
 		if (!init) {
 			View photo = new View(this);
 			String path = p.getPathImage();
 			int id = getResources().getIdentifier(path, "drawable",
 					getApplicationContext().getPackageName());
 			photo.setBackgroundResource(id);
-
 			frame.addView(photo);
-
 		}
 
+		//then we add the right frame picture on top of the photo
 		int idFrame = getResources().getIdentifier("frame" + color, "drawable",
 				getApplicationContext().getPackageName());
 
@@ -209,6 +216,7 @@ public class ComposeMenu extends Activity {
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		frame.addView(mask);
 
+		//if a plat is selected, we also add the description listener
 		if (!init) {
 			mask.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
@@ -220,6 +228,7 @@ public class ComposeMenu extends Activity {
 		buildingFormule.setPlatOfType(typePlat, idPlat);
 	}
 
+	//callback for the confirm button: adds current selection to cart then move to the cart activity
 	public void confirm(View v) {
 		Formule f = new Formule();
 		f.copyFormule(buildingFormule);
@@ -241,6 +250,7 @@ public class ComposeMenu extends Activity {
 
 	}
 
+	//generates a button for Plat p
 	public Button buttonPlat(Plat p) {
 		Button b = new Button(this);
 		Typeface tf = Typeface.createFromAsset(getAssets(),
@@ -252,9 +262,10 @@ public class ComposeMenu extends Activity {
 		return b;
 	}
 
+	//generates a button for Formule f
 	public Button buttonFormule(Formule f) {
 		Button b = new Button(this);
-		b.setText(f.getNom()+" ~ "+f.getPrix()+"€");
+		b.setText(f.getNom() + " ~ " + f.getPrix() + "€");
 		Typeface tf = Typeface.createFromAsset(getAssets(),
 				"fonts/SnellRoundhand.ttc");
 		b.setTypeface(tf);
@@ -269,6 +280,7 @@ public class ComposeMenu extends Activity {
 		return b;
 	}
 
+	//sets the description of idPlat to the frame for typePlat
 	public void frameDescription(final int idPlat, final TypePlat typePlat,
 			final int color) {
 		FrameLayout frame = PlatFrames.get(typePlat);
