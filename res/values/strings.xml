@@ -30,5 +30,7 @@
     <string name="title_activity_carte_menu">À la carte</string>
     <string name="commande_validee">Commande Validée !</string>
     <string name="button_carte_view_cart">Voir mon panier</string>
+    <string name="button_carte_addcart">Ajouter au panier</string>
+    
 
 </resources>

@@ -30,24 +30,72 @@
                 android:layout_height="wrap_content"
                 android:gravity="center" />
 
-            <LinearLayout
-                android:id="@+id/produits_carte"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical" >
+                android:layout_height="341dp"
+                android:layout_weight="0.94" >
+
+                <LinearLayout
+                    android:id="@+id/produits_carte"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <FrameLayout
+                        android:id="@+id/afficher_plat_selec"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+                    </FrameLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="263dp"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="112dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.15"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/carte_desc_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="81dp"
+                        android:gravity="center"
+                        android:text=" " />
+
+                    <TextView
+                        android:id="@+id/carte_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text=" " />
+
+                    <Button
+                        android:id="@+id/button_carte_addCart"
+                        android:layout_width="match_parent"
+                        android:layout_height="37dp"
+                        android:background="@drawable/cloud"
+                        android:text="@string/button_carte_addcart" />
+                </LinearLayout>
 
                 <FrameLayout
-                    android:id="@+id/afficher_plat_selec"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:id="@+id/carte_frame"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.44" >
                 </FrameLayout>
             </LinearLayout>
 
             <Button
                 android:id="@+id/button_carte_view_cart"
                 android:layout_width="match_parent"
-                android:layout_height="57dp"
+                android:layout_height="56dp"
                 android:background="@drawable/cloud"
                 android:onClick="viewCart"
                 android:text="@string/button_carte_view_cart" />

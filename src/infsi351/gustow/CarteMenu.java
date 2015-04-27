@@ -31,20 +31,7 @@ import android.widget.TextView;
 
 public class CarteMenu extends Activity {
 
-	private Formule currentFormule;
-	private Formule buildingFormule;
-
 	private int couleurCourante;
-
-	// les rubriques à afficher dans l'ordre
-	private final EnumSet<TypePlat> rubriques = EnumSet.of(TypePlat.Entree,
-			TypePlat.PlatPrincipal, TypePlat.Dessert);
-
-	// LinearLayout où on affiche la liste des plats par entree/plat/dessert
-	private Map<TypePlat, LinearLayout> PlatLists;
-
-	// FrameLayout où on affiche plus d'infos sur le plat sélectionné
-	private Map<TypePlat, FrameLayout> PlatFrames;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +63,8 @@ public class CarteMenu extends Activity {
 	}
 
 	public void setTypePlat(TypePlat type, final int couleur) {
+		setFrame(0, couleur, true);
+
 		LinearLayout carteTypePlat = (LinearLayout) findViewById(R.id.carte_typeplat);
 		LinearLayout menuTypePlat = (LinearLayout) findViewById(R.id.menu_typeplat);
 		carteTypePlat.setBackgroundColor(Globals.couleurs.get(couleur));
@@ -93,6 +82,8 @@ public class CarteMenu extends Activity {
 		titreMenu.setTypeface(tf, Typeface.BOLD);
 		titreMenu.setTextSize(TypedValue.COMPLEX_UNIT_SP, 50);
 
+		setFrame(0, couleur, true);
+
 		int childcount = menuTypePlat.getChildCount();
 		for (int i = 0; i < childcount; i++) {
 			View v = menuTypePlat.getChildAt(i);
@@ -102,11 +93,10 @@ public class CarteMenu extends Activity {
 		for (final Plat p : Globals.plats.getPlatsByType(type)) {
 			Button b = buttonPlat(p);
 			final int id = p.getId();
-			final TypePlat t = type;
 
 			b.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					addToCart(id, v);
+					setFrame(id, couleur, false);
 				}
 			});
 
@@ -194,4 +184,61 @@ public class CarteMenu extends Activity {
 		finish();
 	}
 
+	private void setFrame(final int idPlat, int color, Boolean init) {
+		TextView title = (TextView) findViewById(R.id.carte_desc_title);
+		TextView desc = (TextView) findViewById(R.id.carte_description);
+		Button button = (Button) findViewById(R.id.button_carte_addCart);
+
+		FrameLayout frame = (FrameLayout) findViewById(R.id.carte_frame);
+
+		Plat p = Globals.plats.get(idPlat);
+
+		frame.removeAllViews();
+
+		if (!init) {
+			View photo = new View(this);
+			String path = p.getPathImage();
+			int id = getResources().getIdentifier(path, "drawable",
+					getApplicationContext().getPackageName());
+			photo.setBackgroundResource(id);
+
+			frame.addView(photo);
+
+			Typeface tf1 = Typeface.createFromAsset(getAssets(),
+					"fonts/SnellRoundhand.ttc");
+			Typeface tf2 = Typeface.createFromAsset(getAssets(),
+					"fonts/Bodoni 72.ttc");
+			title.setTypeface(tf1, Typeface.BOLD_ITALIC);
+			title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+			title.setText(p.getNom() + " ~ " + p.getPrix() + "€ :");
+
+			desc.setTypeface(tf2, Typeface.ITALIC);
+			desc.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+			desc.setText(p.getDescription());
+
+			button.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					addToCart(idPlat, v);
+				}
+			});
+			button.setTypeface(tf1);
+			button.setVisibility(LinearLayout.VISIBLE);
+
+
+		} else {
+			title.setText("");
+			desc.setText("");
+			button.setVisibility(LinearLayout.GONE);
+		}
+
+		int idFrame = getResources().getIdentifier("frame" + color, "drawable",
+				getApplicationContext().getPackageName());
+
+		View mask = new View(this);
+		mask.setBackgroundResource(idFrame);
+		mask.setLayoutParams(new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+		frame.addView(mask);
+
+	}
 }

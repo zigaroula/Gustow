@@ -22,7 +22,7 @@
     <string name="button_cart_formule">Aumentar un menu</string>
     <string name="button_cart_carte">Aumentar desde de la carta</string>
     <string name="button_commande">Pedir</string>
-    
+
     <!-- CommandeValidee -->
     <string name="title_activity_commande_validee">Pedido confirmado</string>
 
@@ -30,5 +30,6 @@
     <string name="title_activity_carte_menu">A la carta</string>
     <string name="commande_validee">Pedido confirmado !</string>
     <string name="button_carte_view_cart">Ver al carro !</string>
+    <string name="button_carte_addcart">Poner en el carro</string>
 
 </resources>
